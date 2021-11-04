@@ -1,11 +1,6 @@
 /*-----------------------------------------------------------------------------------
 
-	Theme Name: Canvas
-	Theme URI: http://themes.semicolonweb.com/html/canvas
-	Description: The Multi-Purpose Template
-	Author: SemiColonWeb
-	Author URI: http://themeforest.net/user/semicolonweb
-	Version: 6.5.4
+	Theme Name: Apple Redington Microsite
 
 -----------------------------------------------------------------------------------*/
 
@@ -3407,6 +3402,7 @@ html[xmlns] .slider-wrap {
 	-ms-flex-align: center;
 	margin-right: auto;
 	max-height: 100%;
+	padding: 10px;
 }
 
 #logo a {
