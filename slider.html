@@ -1,251 +1,1041 @@
 <!DOCTYPE html>
-		<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-		<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-		<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-		<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html dir="ltr" lang="en-US">
 
-		<head>
-			<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<title>Apple Home Slider - Slider Revolution</title>
-			<meta name="description" content="Slider Revolution Example" />
-			<meta name="keywords" content="fullscreen image, grid layout, flexbox grid, transition" />
-			<meta name="author" content="ThemePunch" />
-			<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
 
-			<!-- LOAD JQUERY LIBRARY -->
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-			
-			<!-- LOADING FONTS AND ICONS -->
-			<link href="https://fonts.googleapis.com/css?family=Roboto:400%7COpen+Sans+Condensed:300" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
 
-			
-			<link rel="stylesheet" type="text/css" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-			<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
-			
-			<!-- REVOLUTION STYLE SHEETS -->
-			<link rel="stylesheet" type="text/css" href="css/rs6.css">
-			<!-- REVOLUTION LAYERS STYLES -->
-						<!-- REVOLUTION JS FILES -->
-			<script type="text/javascript" src="js/rbtools.min.js"></script>
-			<script type="text/javascript" src="js/rs6.min.js"></script>
-			
-			<script type="text/javascript">function setREVStartSize(e){
-			//window.requestAnimationFrame(function() {				 
-				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
-				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
-				try {								
-					var pw = document.getElementById(e.c).parentNode.offsetWidth,
-						newh;
-					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
-					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
-					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
-					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
-					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
-					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
-					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
-					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
-					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
-						newh = Math.max(e.mh,window.RSIH);					
-					else{					
-						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
-						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
-						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
-											
-						var nl = new Array(e.rl.length),
-							ix = 0,						
-							sl;					
-						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
-						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
-						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
-						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
-						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
-						sl = nl[0];									
-						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
-						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
-						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
-					}				
-					if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
-					document.getElementById(e.c).height = newh+"px";
-					window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
-				} catch(e){
-					console.log("Failure at Presize of Slider:" + e)
-				}					   
-			//});
-		  };</script>
-		</head>
-		
-		
-<!-- SCRIPTINCLUDE -->			<script type="text/javascript" src="js/"></script>
-			<script type="text/javascript" src="js/"></script>
-<!-- /SCRIPTINCLUDE -->
-			
+	<!-- Stylesheets
+	============================================= -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700&display=swap"
+		rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+
+	<!-- One Page Module Specific Stylesheet -->
+	<link rel="stylesheet" href="one-page/onepage.css" type="text/css" />
+	<!-- / -->
+
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="one-page/css/et-line.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="one-page/css/fonts.css" type="text/css" />
+
+	<link rel="stylesheet" href="css/custom.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-		<body>
 
-			<!-- START Apple Home Slider REVOLUTION SLIDER 6.3.2 --><p class="rs-p-wp-fix"></p>
-			<rs-module-wrap id="rev_slider_4_1_wrapper" data-alias="11genhome-1" data-source="gallery" style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
-				<rs-module id="rev_slider_4_1" style="" data-version="6.3.2">
-					<rs-slides>
-						<rs-slide data-key="rs-4" data-title="Slide" data-anim="ei:d;eo:d;s:3050;r:0;t:fade;sl:0;">
-							<img src="assets/transparent.png" alt="Slide" title="intel_background" width="1246" height="983" data-bg="c:#e8e8e8;" class="rev-slidebg" data-no-retina>
-<!--
-							--><rs-layer
-								id="slider-4-slide-4-layer-1" 
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="xo:29px,29px,29px,189px;yo:270px,270px,270px,63px;"
-								data-text="w:normal;s:20,20,20,8;l:0,0,0,10;"
-								data-dim="w:165px,165px,165px,72px;h:52px,52px,52px,22px;"
-								data-frame_0="x:-50,-50,-50,-21;"
-								data-frame_1="sp:4000;"
-								data-frame_999="o:0;st:w;"
-								style="z-index:13;"
-							><img src="assets/Asset-11.png" width="207" height="65" data-no-retina> 
-							</rs-layer><!--
+	<!-- Document Title
+	============================================= -->
+	<title>Apple Extended Warranty | Redington</title>
 
-							--><rs-layer
-								id="slider-4-slide-4-layer-2" 
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="xo:262px,262px,262px,51px;yo:145px,145px,145px,137px;"
-								data-text="w:normal;s:20,20,20,8;l:0,0,0,10;"
-								data-dim="w:565px,565px,565px,393px;h:280px,280px,280px,195px;"
-								data-frame_0="y:-50,-50,-50,-21;"
-								data-frame_1="sp:4000;"
-								data-frame_999="o:0;st:w;"
-								style="z-index:14;"
-							><img src="assets/Asset-12.png" width="786" height="390" data-no-retina> 
-							</rs-layer><!--
+	<style>
+		.tp-caption {
+			white-space: nowrap;
+		}
+	</style>
 
-							--><rs-layer
-								id="slider-4-slide-4-layer-13" 
-								class="rev-btn"
-								data-type="button"
-								data-color="#0a0a0a"
-								data-bsh="c:rgba(0,0,0,0.25);v:10px,10px,10px,3px;b:10px,10px,10px,3px;"
-								data-rsp_ch="on"
-								data-xy="xo:398px,398px,398px,157px;yo:457px,457px,457px,429px;"
-								data-text="w:normal;s:20,20,20,18;l:50,50,50,21;fw:300;a:center;"
-								data-dim="w:345px,345px,345px,235px;h:auto,auto,auto,46px;minh:0px,0px,0px,none;"
-								data-padding="t:0,0,0,15;r:40,40,40,15;b:0,0,0,15;l:40,40,40,15;"
-								data-border="bos:solid;boc:#0c0c0c;bow:1px,1px,1px,1px;bor:5px,5px,5px,5px;"
-								data-frame_0="y:-50,-50,-50,-21;"
-								data-frame_1="sp:4000;"
-								data-frame_999="o:0;st:w;"
-								data-frame_hover="c:#fff;bgc:rgba(0,0,0,0.39);boc:transparent;bor:3px,3px,3px,3px;bos:none;bow:0,0,0,0;sp:100;e:power1.inOut;bri:120%;"
-								style="z-index:11;background-color:#e8e8e8;font-family:Open Sans Condensed;"
-							>Find Out More     <i class="fa-angle-right"></i> 
-							</rs-layer><!--
+	<!-- TILES STYLE-->
 
-							--><rs-layer
-								id="slider-4-slide-4-layer-14" 
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="xo:830px,830px,830px,179px;yo:244px,244px,244px,350px;"
-								data-text="w:normal;s:20,20,20,8;l:0,0,0,10;"
-								data-dim="w:212px,212px,212px,164px;h:37px,37px,37px,29px;"
-								data-frame_0="x:right;"
-								data-frame_1="x:-3px,-3px,-3px,0px;y:1px,1px,1px,0px;sp:5000;"
-								data-frame_999="o:0;st:w;"
-								style="z-index:12;"
-							><img src="assets/Asset-13.png" width="516" height="91" data-no-retina> 
-							</rs-layer><!--
--->						</rs-slide>
-						<rs-slide data-key="rs-5" data-title="Slide" data-anim="ei:d;eo:d;s:1000;r:0;t:fade;sl:0;">
-							<img src="assets/transparent.png" alt="Slide" data-bg="c:#e8e8e8;" class="rev-slidebg" data-no-retina>
-<!--
-							--><rs-layer
-								id="slider-4-slide-5-layer-4" 
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="xo:20px,20px,20px,130px;yo:277px,277px,277px,106px;"
-								data-text="w:normal;s:20,20,20,8;l:0,0,0,10;"
-								data-dim="w:318px,318px,318px,248px;h:54px,54px,54px,42px;"
-								data-frame_0="x:-100%;"
-								data-frame_0_mask="u:t;"
-								data-frame_1="sp:4000;"
-								data-frame_1_mask="u:t;"
-								data-frame_999="o:0;st:w;"
-								style="z-index:5;"
-							><img src="assets/Asset-15.png" width="336" height="57" data-no-retina> 
-							</rs-layer><!--
+	<style>
+		.block-card-9 .grid-inner .btn-hover {
+			opacity: 0;
+			display: block;
+			transition: opacity .3s ease, transform .3s .1s ease;
+			margin-top: 15px;
+			position: absolute;
+			transform: translateY(0);
+		}
 
-							--><rs-layer
-								id="slider-4-slide-5-layer-5" 
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="xo:332px,332px,332px,19px;yo:195px,195px,195px,247px;"
-								data-text="w:normal;s:20,20,20,8;l:0,0,0,10;"
-								data-dim="w:732px,732px,732px,441px;h:221px,221px,221px,133px;"
-								data-frame_0="sX:2;sY:2;"
-								data-frame_0_mask="u:t;"
-								data-frame_1="e:power2.out;sp:4000;"
-								data-frame_1_mask="u:t;"
-								data-frame_999="o:0;st:w;"
-								style="z-index:6;"
-							><img src="assets/Asset-14.png" width="902" height="272" data-no-retina> 
-							</rs-layer><!--
--->						</rs-slide>
-					</rs-slides>
-				</rs-module>
-		<script type="text/javascript">
-		if(typeof revslider_showDoubleJqueryError === "undefined") {
-			function revslider_showDoubleJqueryError(sliderID) {
-				var err = "<div class='rs_error_message_box'>";
-				err += "<div class='rs_error_message_oops'>Oops...</div>";
-				err += "<div class='rs_error_message_content'>";
-				err += "You have some jquery.js library include that comes after the Slider Revolution files js inclusion.<br>";
-				err += "To fix this, you can:<br>&nbsp;&nbsp;&nbsp; 1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on";
-				err += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jQuery.js inclusion and remove it";
-				err += "</div>";
-			err += "</div>";
-				var slider = document.getElementById(sliderID); slider.innerHTML = err; slider.style.display = "block";
+		.block-card-9 .grid-inner:hover .btn-hover {
+			opacity: 1;
+			transform: translateY(-5px);
+		}
+
+		.block-card-9 .grid-inner .grid-image {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center center;
+		}
+
+		.block-card-9 .grid-inner:hover .grid-image {
+			-webkit-animation: kenburns 20s ease-out both;
+			animation: kenburns 20s ease-out both;
+		}
+
+		.block-card-9 .grid-inner .grid-icon,
+		.block-card-9 .grid-inner .grid-content {
+			transition: transform .3s ease;
+		}
+
+		.block-card-9 .grid-inner:hover .grid-content {
+			transform: translateY(-45px);
+		}
+
+		.block-card-9 .grid-inner:hover .grid-icon {
+			transform: translateY(-5px);
+		}
+
+		@-webkit-keyframes kenburns {
+			0% {
+				-webkit-transform: scale(1) translate(0, 0);
+				transform: scale(1) translate(0, 0);
+				-webkit-transform-origin: 84% 84%;
+				transform-origin: 84% 84%;
+			}
+
+			100% {
+				-webkit-transform: scale(1.25) translate(20px, 15px);
+				transform: scale(1.25) translate(20px, 15px);
+				-webkit-transform-origin: right bottom;
+				transform-origin: right bottom;
 			}
 		}
-		</script>
-			</rs-module-wrap>
-			<!-- END REVOLUTION SLIDER -->
 
-				<script type="text/javascript">
-					
-					var	revapi4,
-						tpj;
-					function revinit_revslider41() {
-					jQuery(function() {
-						tpj = jQuery;
-						revapi4 = tpj("#rev_slider_4_1");
-						if(revapi4==undefined || revapi4.revolution == undefined){
-							revslider_showDoubleJqueryError("rev_slider_4_1");
-						}else{
-							revapi4.revolution({
-								sliderLayout:"fullwidth",
-								visibilityLevels:"1240,1240,1240,480",
-								gridwidth:"1080,1080,1080,480",
-								gridheight:"663,663,663,900",
-								perspective:600,
-								perspectiveType:"global",
-								editorheight:"663,768,960,900",
-								responsiveLevels:"1240,1240,1240,480",
-								progressBar:{disableProgressBar:true},
-								navigation: {
-									onHoverStop:false
-								},
-								fallbacks: {
-									allowHTML5AutoPlayOnAndroid:true
-								},
-							});
-						}
+		@keyframes kenburns {
+			0% {
+				-webkit-transform: scale(1) translate(0, 0);
+				transform: scale(1) translate(0, 0);
+				-webkit-transform-origin: 84% 84%;
+				transform-origin: 84% 84%;
+			}
+
+			100% {
+				-webkit-transform: scale(1.25) translate(20px, 15px);
+				transform: scale(1.25) translate(20px, 15px);
+				-webkit-transform-origin: right bottom;
+				transform-origin: right bottom;
+			}
+		}
+	</style>
+
+	<!-- LOAD JQUERY LIBRARY -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+
+	<!-- LOADING FONTS AND ICONS -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400%7CPoppins:500%2C400&display=swap" rel="stylesheet"
+		property="stylesheet" media="all" type="text/css">
+
+
+	<link rel="stylesheet" type="text/css" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+	<!-- REVOLUTION STYLE SHEETS -->
+	<link rel="stylesheet" type="text/css" href="css/rs6.css">
+	<!-- REVOLUTION LAYERS STYLES -->
+	<!-- REVOLUTION JS FILES -->
+
+	<script type="text/javascript">
+		window.RS_MODULES = window.RS_MODULES || {};
+		window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+		window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+		window.RS_MODULES.defered = true;
+		window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+		window.RS_MODULES.type = 'compiled';
+	</script>
+	<script type="text/javascript" src="js/rbtools.min.js"></script>
+	<script type="text/javascript" src="js/rs6.min.js"></script>
+
+	<script type="text/javascript">function setREVStartSize(e) {
+			//window.requestAnimationFrame(function() {				 
+			window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+			window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+			try {
+				var pw = document.getElementById(e.c).parentNode.offsetWidth,
+					newh;
+				pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+				e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+				e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+				e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+				e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+				e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+				e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+				e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+				if (e.layout === "fullscreen" || e.l === "fullscreen")
+					newh = Math.max(e.mh, window.RSIH);
+				else {
+					e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+					for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+					e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+					e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+					for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+					var nl = new Array(e.rl.length),
+						ix = 0,
+						sl;
+					e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+					e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+					e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+					e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+					for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+					sl = nl[0];
+					for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+					var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+					newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+				}
+				var el = document.getElementById(e.c);
+				if (el !== null && el) el.style.height = newh + "px";
+				el = document.getElementById(e.c + "_wrapper");
+				if (el !== null && el) {
+					el.style.height = newh + "px";
+					el.style.display = "block";
+				}
+			} catch (e) {
+				console.log("Failure at Presize of Slider:" + e)
+			}
+			//});
+		};</script>
+
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+			============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+				============================================= -->
+		<header id="header" class="full-header transparent-header header-size-custom" data-sticky-shrink="false"
+			data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="200">
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+								============================================= -->
+						<div id="logo">
+							<a href="index.html" class="standard-logo"
+								data-dark-logo="images/1x/redington_logo.png"><img src="images/1x/redington_logo.png" alt="Redington Logo"></a>
+							<a href="index.html" class="retina-logo" data-dark-logo="images/1x/redington_logo.png"><img
+									src="images/1x/redington_logo.png" alt="Redington Logo"></a>
+						</div><!-- #logo end -->
+
+						<div id="primary-menu-trigger">
+							<svg class="svg-trigger" viewBox="0 0 100 100">
+								<path
+									d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20">
+								</path>
+								<path d="m 30,50 h 40"></path>
+								<path
+									d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20">
+								</path>
+							</svg>
+						</div>
+
+						<!-- Primary Navigation
+								============================================= -->
+						<nav class="primary-menu">
+
+							<ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250"
+								data-offset="65">
+								<li class="menu-item">
+									<a href="#" class="menu-link" data-href="#wrapper">
+										<div>MACBOOK PRO EXTENDED WARRANTY</div>
+									</a>
+								</li>
+								<li class="menu-item">
+									<a href="#" class="menu-link" data-href="#section-about">
+										<div>IPAD EXTENDED WARRANTY</div>
+									</a>
+								</li>
+
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header><!-- #header end -->
+
+		<section id="slider" class="slider-element slider-parallax revslider-wrap include-header min-vh-0">
+			
+						<!-- START Tech Slider1 REVOLUTION SLIDER 6.5.9 -->
+						<p class="rs-p-wp-fix"></p>
+						<rs-module-wrap id="rev_slider_6_1_wrapper" data-alias="tech-slider1" data-source="gallery"
+							style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+							<rs-module id="rev_slider_6_1" style="" data-version="6.5.9">
+								<rs-slides>
+									<rs-slide style="position: absolute;" data-key="rs-9" data-title="Slide"
+										data-thumb="assets/slide1.jpg" data-duration="9000" data-anim="ms:500ms;r:0;"
+										data-in="o:0;" data-out="a:false;">
+										<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img"
+											data-bg="c:#222222;" data-parallax="off" data-no-retina>
+										<!--						-->
+										<rs-zone id="rrzm_9" class="rev_row_zone_middle" style="z-index: 15;">
+											<!--
+
+								-->
+											<rs-row id="slider-6-slide-9-layer-5" data-type="row"
+												data-xy="xo:50px;yo:94px;" data-cbreak="3" data-rsp_bd="off"
+												data-margin="r:30;b:0,0,0,200;l:30;"
+												data-frame_999="st:w;sp:500;sR:8700;sA:9000;" style="z-index:1;">
+												<!--
+									-->
+												<rs-column id="slider-6-slide-9-layer-6" data-type="column"
+													data-xy="xo:50px;yo:94px;" data-rsp_bd="off" data-column="w:50%;"
+													data-frame_999="st:w;sp:500;sR:8700;sA:9000;"
+													style="z-index:2;width:100%;">
+													<!--									-->
+												</rs-column>
+												<!--
+
+									-->
+												<rs-column id="slider-6-slide-9-layer-7" data-type="column"
+													data-xy="xo:50px;yo:94px;" data-text="a:right,right,right,center;"
+													data-rsp_bd="off" data-column="w:50%;"
+													data-frame_999="st:w;sp:500;sR:8700;sA:9000;"
+													style="z-index:3;width:100%;">
+													<!--
+										-->
+													<rs-layer id="slider-6-slide-9-layer-4" data-type="text"
+														data-text="w:nowrap,nowrap,nowrap,normal;s:100,80,50,50;l:100,80,50,50;fw:500;a:left,left,left,center;"
+														data-dim="w:400px,320px,220px,100%;" data-rsp_o="off"
+														data-rsp_bd="off" data-disp="inline-block"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														style="z-index:4;font-family:'Poppins';display:inline-block;">
+														Design<br />
+														for all<br />
+														Devices
+													</rs-layer>
+													<!--
+
+										-->
+													<rs-layer id="slider-6-slide-9-layer-9" data-type="text"
+														data-color="rgba(255, 255, 255, 0.5)"
+														data-text="w:normal;s:17,17,15,15;l:30,30,25,25;a:left,left,left,center;"
+														data-dim="w:400px,320px,220px,100%;" data-rsp_o="off"
+														data-rsp_bd="off" data-disp="inline-block"
+														data-margin="t:40,40,20,20;"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														style="z-index:5;font-family:'Poppins';display:inline-block;">
+														Slider Revolution 6.0 is a web-design and animation tool with a
+														clear, visual interface.
+													</rs-layer>
+													<!--
+
+										-->
+													<rs-layer id="slider-6-slide-9-layer-12" data-type="text"
+														data-bsh="c:rgba(0,0,0,0.15);v:10px;b:20px;"
+														data-text="s:17;l:50;fw:500;a:center;"
+														data-dim="w:240px,240px,200px,200px;h:50px;"
+														data-actions='o:click;a:scrollbelow;sp:1000ms;e:power1.inOut;'
+														data-rsp_o="off" data-rsp_bd="off" data-disp="inline-block"
+														data-margin="t:60,60,30,30;r:160,80,20,0;"
+														data-padding="r:15;l:15;" data-border="bor:2px,2px,2px,2px;"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														data-frame_hover="bgc:#ff018f;bor:0,0,0,0;sp:300ms;e:power1.inOut;gra:30%;bri:100%;"
+														style="z-index:6;background-color:#ff018f;font-family:'Poppins';cursor:pointer;display:inline-block;">
+														<i class="material-icons"
+															style="font-size:25px;margin-right:2px;">play_circle_outline</i>
+														Get Started
+													</rs-layer>
+													<!--
+									-->
+												</rs-column>
+												<!--
+								-->
+											</rs-row>
+											<!--
+							-->
+										</rs-zone>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-9-layer-1" class="rs-pxl-4" data-type="image"
+											data-rsp_ch="on" data-xy="y:b;yo:-50px,-41px,-31px,-19px;"
+											data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:950px,784px,595px,367px;h:800px,660px,501px,309px;"
+											data-basealign="slide" data-frame_0="x:left;y:bottom;o:1;"
+											data-frame_1="e:power4.out;st:500;sp:4000;sR:500;"
+											data-frame_999="st:w;sp:500;sR:5500;auto:true;" style="z-index:11;"><img
+												src="assets/apple_shapebg1.jpg" class="tp-rs-img" width="1900"
+												height="1600" data-no-retina>
+										</rs-layer>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-9-layer-2" class="rs-pxl-15" data-type="image"
+											data-rsp_ch="on"
+											data-xy="x:l,l,l,c;xo:413px,291px,171px,130px;y:m;yo:0,0,-30px,174px;"
+											data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:400px,330px,250px,154px;h:300px,247px,187px,115px;"
+											data-frame_0="y:top;o:1;"
+											data-frame_1="e:power4.out;st:1000;sp:2000;sR:1000;"
+											data-frame_999="x:-100px,-82px,-62px,-38px;o:0;st:w;sp:500;sR:6000;"
+											style="z-index:13;"><img src="assets/apple_iphone-1.png" class="tp-rs-img"
+												width="400" height="300" data-no-retina>
+										</rs-layer>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-9-layer-3" class="rs-pxl-13" data-type="image"
+											data-rsp_ch="on"
+											data-xy="x:l,l,l,c;xo:-170px,-190px,-164px,-40px;y:m;yo:20px,0,0,180px;"
+											data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:779px,643px,488px,301px;h:820px,677px,514px,317px;"
+											data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
+											data-frame_999="x:-100px,-82px,-62px,-38px;o:0;st:w;sp:500;sR:6300;"
+											style="z-index:12;"><img src="assets/apple_macbook-2.png" class="tp-rs-img"
+												width="779" height="820" data-no-retina>
+										</rs-layer>
+										<!--
+-->
+									</rs-slide>
+									<rs-slide style="position: absolute;" data-key="rs-10" data-title="Slide"
+										data-thumb="assets/slide2.jpg" data-duration="9000" data-anim="ms:500ms;r:0;"
+										data-in="o:0;" data-out="a:false;">
+										<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img"
+											data-bg="c:#222222;" data-parallax="off" data-no-retina>
+										<!--						-->
+										<rs-zone id="rrzm_10" class="rev_row_zone_middle" style="z-index: 15;">
+											<!--
+
+								-->
+											<rs-row id="slider-6-slide-10-layer-5" data-type="row"
+												data-xy="xo:50px;yo:94px;" data-cbreak="3" data-rsp_bd="off"
+												data-margin="r:30;b:0,0,0,200;l:30;"
+												data-frame_999="st:w;sp:500;sR:8700;sA:9000;" style="z-index:1;">
+												<!--
+									-->
+												<rs-column id="slider-6-slide-10-layer-6" data-type="column"
+													data-xy="xo:50px;yo:94px;" data-text="a:right,right,right,center;"
+													data-rsp_bd="off" data-column="w:50%;"
+													data-frame_999="st:w;sp:500;sR:8700;sA:9000;"
+													style="z-index:2;width:100%;">
+													<!--
+										-->
+													<rs-layer id="slider-6-slide-10-layer-4" data-type="text"
+														data-text="w:normal;s:100,80,50,50;l:100,80,50,50;fw:500;a:left,left,left,center;"
+														data-dim="w:500px,400px,260px,100%;" data-rsp_o="off"
+														data-rsp_bd="off" data-disp="inline-block"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														style="z-index:3;font-family:'Poppins';display:inline-block;">
+														Make<br />
+														A Bold<br />
+														Statement
+													</rs-layer>
+													<!--
+
+										-->
+													<rs-layer id="slider-6-slide-10-layer-9" data-type="text"
+														data-color="rgba(255, 255, 255, 0.5)"
+														data-text="w:normal;s:17,17,15,15;l:30,30,25,25;a:left,left,left,center;"
+														data-dim="w:500px,400px,260px,100%;" data-rsp_o="off"
+														data-rsp_bd="off" data-disp="inline-block"
+														data-margin="t:40,40,20,20;"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														style="z-index:4;font-family:'Poppins';display:inline-block;">
+														Striking presentations that expand the perception of your
+														viewers.
+													</rs-layer>
+													<!--
+
+										-->
+													<rs-layer id="slider-6-slide-10-layer-12" data-type="text"
+														data-color="#222222"
+														data-bsh="c:rgba(0,0,0,0.15);v:10px;b:20px;"
+														data-text="s:17;l:50;fw:500;a:center;"
+														data-dim="w:240px,240px,200px,200px;h:50px;"
+														data-actions='o:click;a:scrollbelow;sp:1000ms;e:power1.inOut;'
+														data-rsp_o="off" data-rsp_bd="off" data-disp="inline-block"
+														data-margin="t:60,60,30,30;r:260,160,60,0;"
+														data-padding="r:15;l:15;" data-border="bor:2px,2px,2px,2px;"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														data-frame_hover="c:#fff;bgc:#222;bor:0,0,0,0;sp:300ms;e:power1.inOut;gra:0%;bri:100%;"
+														style="z-index:5;background-color:#f8e937;font-family:'Poppins';cursor:pointer;display:inline-block;">
+														<i class="material-icons"
+															style="font-size:25px;margin-right:2px;">play_circle_outline</i>
+														Get Started
+													</rs-layer>
+													<!--
+									-->
+												</rs-column>
+												<!--
+
+									-->
+												<rs-column id="slider-6-slide-10-layer-7" data-type="column"
+													data-xy="xo:50px;yo:94px;" data-text="a:right,right,right,center;"
+													data-rsp_bd="off" data-column="w:50%;"
+													data-frame_999="st:w;sp:500;sR:8700;sA:9000;"
+													style="z-index:6;width:100%;">
+													<!--									-->
+												</rs-column>
+												<!--
+								-->
+											</rs-row>
+											<!--
+							-->
+										</rs-zone>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-10-layer-0" class="rs-pxl-13" data-type="image"
+											data-rsp_ch="on"
+											data-xy="x:r,r,r,c;xo:181px,180px,116px,80px;y:m;yo:237px,210px,178px,220px;"
+											data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:500px,412px,313px,193px;h:420px,346px,262px,161px;"
+											data-frame_0="y:top;o:1;"
+											data-frame_1="e:power4.out;st:1000;sp:2000;sR:1000;"
+											data-frame_999="x:100px,82px,62px,38px;o:0;st:w;sp:500;sR:6000;"
+											style="z-index:13;"><img src="assets/apple_watch-1.png" class="tp-rs-img"
+												width="500" height="420" data-no-retina>
+										</rs-layer>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-10-layer-1" class="rs-pxl-4" data-type="image"
+											data-rsp_ch="on" data-xy="x:r;y:b;" data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:870px,718px,545px,336px;h:810px,668px,507px,312px;"
+											data-basealign="slide" data-frame_0="x:right;y:bottom;o:1;"
+											data-frame_1="e:power4.out;st:500;sp:4000;sR:500;"
+											data-frame_999="st:w;sp:500;sR:4500;auto:true;" style="z-index:11;"><img
+												src="assets/apple_yellos.png" class="tp-rs-img" width="1740"
+												height="1620" data-no-retina>
+										</rs-layer>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-10-layer-3" class="rs-pxl-13" data-type="image"
+											data-rsp_ch="on"
+											data-xy="x:r,r,r,c;xo:-130px,-80px,-84px,-20px;y:m;yo:0,0,0,180px;"
+											data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:500px,412px,313px,193px;h:720px,594px,451px,278px;"
+											data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
+											data-frame_999="x:100px,82px,62px,38px;o:0;st:w;sp:500;sR:6300;"
+											style="z-index:12;"><img src="assets/apple_phone2-1.png" class="tp-rs-img"
+												width="500" height="720" data-no-retina>
+										</rs-layer>
+										<!--
+-->
+									</rs-slide>
+									<rs-slide style="position: absolute;" data-key="rs-11" data-title="Slide"
+										data-thumb="assets/slide3.jpg" data-duration="9000" data-anim="ms:500ms;r:0;"
+										data-in="o:0;" data-out="a:false;">
+										<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img"
+											data-bg="c:#222222;" data-parallax="off" data-no-retina>
+										<!--						-->
+										<rs-zone id="rrzm_11" class="rev_row_zone_middle" style="z-index: 15;">
+											<!--
+
+								-->
+											<rs-row id="slider-6-slide-11-layer-5" data-type="row"
+												data-xy="xo:50px;yo:94px;" data-cbreak="3" data-rsp_bd="off"
+												data-margin="r:30;b:0,0,0,200;l:30;"
+												data-frame_999="st:w;sp:500;sR:8700;sA:9000;" style="z-index:1;">
+												<!--
+									-->
+												<rs-column id="slider-6-slide-11-layer-6" data-type="column"
+													data-xy="xo:50px;yo:94px;" data-text="a:right,right,right,center;"
+													data-rsp_bd="off" data-column="w:50%;"
+													data-frame_999="st:w;sp:500;sR:8700;sA:9000;"
+													style="z-index:2;width:100%;">
+													<!--
+										-->
+													<rs-layer id="slider-6-slide-11-layer-4" data-type="text"
+														data-text="w:normal;s:100,80,50,50;l:100,80,50,50;fw:500;a:left,left,left,center;"
+														data-dim="w:500px,400px,260px,100%;" data-rsp_o="off"
+														data-rsp_bd="off" data-disp="inline-block"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														style="z-index:3;font-family:'Poppins';display:inline-block;">
+														Create<br />
+														Beautiful<br />
+														Websites
+													</rs-layer>
+													<!--
+
+										-->
+													<rs-layer id="slider-6-slide-11-layer-9" data-type="text"
+														data-color="rgba(255, 255, 255, 0.5)"
+														data-text="w:normal;s:17,17,15,15;l:30,30,25,25;a:left,left,left,center;"
+														data-dim="w:500px,400px,260px,100%;" data-rsp_o="off"
+														data-rsp_bd="off" data-disp="inline-block"
+														data-margin="t:40,40,20,20;"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														style="z-index:4;font-family:'Poppins';display:inline-block;">
+														Our 200+ templates are a great starting point
+														for your own professional website.
+													</rs-layer>
+													<!--
+
+										-->
+													<rs-layer id="slider-6-slide-11-layer-12" data-type="text"
+														data-bsh="c:rgba(0,0,0,0.15);v:10px;b:20px;"
+														data-text="s:17;l:50;fw:500;a:center;"
+														data-dim="w:240px,240px,200px,200px;h:50px;"
+														data-actions='o:click;a:scrollbelow;sp:1000ms;e:power1.inOut;'
+														data-rsp_o="off" data-rsp_bd="off" data-disp="inline-block"
+														data-margin="t:60,60,30,30;r:260,160,60,0;"
+														data-padding="r:15;l:15;" data-border="bor:2px,2px,2px,2px;"
+														data-ford="frame_0;frame_1;frame_2;frame_999;"
+														data-frame_0="y:60px;"
+														data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+														data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+														data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+														data-frame_hover="bgc:#26a4b0;bor:0,0,0,0;sp:300ms;e:power1.inOut;gra:30%;bri:100%;"
+														style="z-index:5;background-color:#26a4b0;font-family:'Poppins';cursor:pointer;display:inline-block;">
+														<i class="material-icons"
+															style="font-size:25px;margin-right:2px;">play_circle_outline</i>
+														Get Started
+													</rs-layer>
+													<!--
+									-->
+												</rs-column>
+												<!--
+
+									-->
+												<rs-column id="slider-6-slide-11-layer-7" data-type="column"
+													data-xy="xo:50px;yo:94px;" data-text="a:right,right,right,center;"
+													data-rsp_bd="off" data-column="w:50%;"
+													data-frame_999="st:w;sp:500;sR:8700;sA:9000;"
+													style="z-index:6;width:100%;">
+													<!--									-->
+												</rs-column>
+												<!--
+								-->
+											</rs-row>
+											<!--
+							-->
+										</rs-zone>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-11-layer-1" class="rs-pxl-4" data-type="image"
+											data-rsp_ch="on" data-xy="x:r;" data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:950px,784px,595px,367px;h:800px,660px,501px,309px;"
+											data-basealign="slide" data-btrans="rZ:180;"
+											data-frame_0="x:left;y:bottom;o:1;"
+											data-frame_1="e:power4.out;st:500;sp:4000;sR:500;"
+											data-frame_999="st:w;sp:500;sR:5500;auto:true;" style="z-index:11;"><img
+												src="assets/apple_shapebg1.jpg" class="tp-rs-img" width="1900"
+												height="1600" data-no-retina>
+										</rs-layer>
+										<!--
+
+							-->
+										<rs-layer id="slider-6-slide-11-layer-3" class="rs-pxl-13" data-type="image"
+											data-rsp_ch="on"
+											data-xy="x:r,r,r,c;xo:-50px,-20px,-4px,0;y:m;yo:0,0,0,180px;"
+											data-text="s:20,16,12,7;l:0,20,15,9;"
+											data-dim="w:550px,454px,344px,212px;h:786px,649px,493px,304px;"
+											data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
+											data-frame_999="x:100px,82px,62px,38px;o:0;st:w;sp:500;sR:6300;"
+											style="z-index:12;"><img src="assets/apple2.png" class="tp-rs-img"
+												width="700" height="1000" data-no-retina>
+										</rs-layer>
+										<!--
+-->
+									</rs-slide>
+								</rs-slides>
+							</rs-module>
+							<script type="text/javascript">
+
+							</script>
+							<script type="text/javascript">
+								if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+							</script>
+						</rs-module-wrap>
+						<!-- END REVOLUTION SLIDER -->
+				
+		</section>
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap min-vh-100 d-flex align-items-center">
+				<!-- Product Tiles Start-->
+				<div class="container clearfix">
+
+					<div class="row block-card-9 col-mb-50">
+
+						<div class="col-lg-4 min-vh-75">
+							<div class="grid-inner rounded-3 h-100 shadow-lg">
+								<div class="grid-image lazy" data-bg="images/blocks/preview/card-9/1.jpg"></div>
+								<div class="bg-overlay">
+									<div class="bg-overlay-content flex-column justify-content-between align-items-start p-5">
+										<div class="grid-icon">
+											<!--<img src="demos/restaurant/images/icons/bowl-white.svg" alt="Image" width="60">-->
+										</div>
+										<div class="grid-content">
+											<!--<h5 class=" fw-medium font-body ls1 text-smaller op-07 mb-2">Function defines form. Every aspect of Mac Pro is designed in pursuit of performance. Built around a stainless steel space frame, an aluminum housing lifts off, allowing 360‑degree access to every component and vast configuration. From there anything is possible. </h5>-->
+											<!--<h3 class="fw-medium h2"></h3>-->
+										
+										</div>
+									</div>
+									<!--<div class="bg-overlay-bg" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.021) 10%, #070707 98%);"></div>-->
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 min-vh-75">
+							<div class="grid-inner rounded-3 h-100 shadow-lg">
+								<div class="grid-image lazy" data-bg="images/blocks/preview/card-9/2.jpg"></div>
+								<div class="bg-overlay">
+									<div class="bg-overlay-content flex-column justify-content-between align-items-start p-5 dark">
+										<div class="grid-icon">
+											<!--<img src="demos/restaurant/images/icons/bowl-white.svg" alt="Image" width="60">-->
+										</div>
+										<div class="grid-content">
+											<!--<h5 class=" fw-medium font-body ls1 text-smaller op-07 mb-2">Function defines form. Every aspect of Mac Pro is designed in pursuit of performance. Built around a stainless steel space frame, an aluminum housing lifts off, allowing 360‑degree access to every component and vast configuration. From there anything is possible. </h5>-->
+											<!--<h3 class="fw-medium h2"></h3>-->
+										
+										</div>
+									</div>
+									<div class="bg-overlay-bg" style="background: linear-gradient(to bottom, rgba(0,0,0,0.2) 80%, #6e6e6e 99%);"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 min-vh-75">
+							<div class="grid-inner rounded-3 h-100 shadow-lg">
+								<div class="grid-image lazy" data-bg="images/blocks/preview/card-9/3.jpg"></div>
+								<div class="bg-overlay">
+									<div class="bg-overlay-content flex-column justify-content-between align-items-start p-5 dark">
+										<div class="grid-icon">
+											<!--<img src="demos/restaurant/images/icons/bowl-white.svg" alt="Image" width="60">-->
+										</div>
+										<div class="grid-content">
+										<!--	<h5 class=" fw-medium font-body ls1 text-smaller op-07 mb-2">Function defines form. Every aspect of Mac Pro is designed in pursuit of performance. Built around a stainless steel space frame, an aluminum housing lifts off, allowing 360‑degree access to every component and vast configuration. From there anything is possible. </h5>-->
+											<!--<h3 class="fw-medium h2"></h3>-->
+										
+										</div>
+									</div>
+									<!--<div class="bg-overlay-bg" style="background: linear-gradient(to bottom, rgba(0,0,0,0.1) 10%, #070707 99%);"></div>-->
+								</div>
+							</div>
+						</div>
 						
+						
+
+					</div>
+				</div>
+
+				<!-- Product Tiles End-->
+
+			</div>
+			<div><h1 style="text-align: center;">Contact Us</h1></div>
+			<div class="content-wrap min-vh-100 d-flex align-items-center">
+
+				
+				<!-- Email Form Start-->
+				<div class="container clearfix">
+
+					<div class="mx-auto topmargin" style="max-width: 850px; padding-top:0px;">
+
+						<div class="form-widget">
+
+							<div class="form-result"></div>
+
+							<form class="row mb-0" id="template-contactform" name="template-contactform" action="include/form.php" method="post">
+
+								<div class="form-process">
+									<div class="css3-spinner">
+										<div class="css3-spinner-scale-ripple">
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6 mb-4">
+									<input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control border-form-control required" placeholder="Name" />
+								</div>
+								<div class="col-md-6 mb-4">
+									<input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control border-form-control" placeholder="Email Address" />
+								</div>
+
+								<div class="w-100"></div>
+
+								<div class="col-md-4 mb-4">
+									<input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control border-form-control" placeholder="Phone" />
+								</div>
+
+								<div class="col-md-8 mb-4">
+									<input type="text" id="template-contactform-subject" name="subject" value="" class="required sm-form-control border-form-control" placeholder="Location" />
+								</div>
+
+								<div class="w-100"></div>
+
+								<div class="col-12 mb-4">
+									<label for="cars">Select Product:</label>
+										<select id="product" name="product" id="template-contactform-product" class="sm-form-control">
+										<option value="" disabled selected>Select Your Option</option>
+										<option value="MacBook">MacBook</option>
+										<option value="iPad">iPad</option>
+										<option value="iPad Mini">iPad Mini</option>
+									
+										</select>
+								</div>
+
+								<div class="col-12 mb-4">
+									<label for="cars">Select Authorized Reseller:</label>
+										<select id="reseller" name="reseller" id="template-contactform-reseller" class="sm-form-control">
+										<option value="" disabled selected>Select Your Option</option>
+										<option value="iWorld">Elite Digital</option>
+										<option value="iWorld">Salute iWorld</option>
+										<option value="Globoedge">Globoedge</option>
+										<option value="Mac & More">Mac & More</option>
+										<option value="Gametroniq">Gametroniq</option>
+									
+										</select>
+								</div>
+
+								<div class="col-12 center mb-4">
+									<button class="button button-border button-circle fw-medium ms-0 topmargin-sm" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+									<br>
+									<small style="display: block; font-size: 13px; margin-top: 15px;"></small>
+								</div>
+
+								<div class="w-100"></div>
+
+								<div class="col-12 d-none">
+									<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+								</div>
+
+								<input type="hidden" name="prefix" value="template-contactform-">
+
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+				<!-- Email Form End-->
+			</div>
+		</section><!-- #content end -->
+
+		
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark border-0">
+
+
+			<div id="copyrights">
+				<div class="container center clearfix">
+					Copyright Redington 2021 | All Rights Reserved
+				</div>
+			</div>
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+		<!-- JavaScripts
+	============================================= -->
+	
+	<script src="js/plugins.min.js"></script>
+	
+	
+
+
+
+		<script type="text/javascript">
+			var tpj = jQuery;
+			if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+			if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+			RS_MODULES.modules["revslider61"] = {
+				once: RS_MODULES.modules["revslider61"] !== undefined ? RS_MODULES.modules["revslider61"].once : undefined, init: function () {
+					window.revapi6 = window.revapi6 === undefined || window.revapi6 === null || window.revapi6.length === 0 ? document.getElementById("rev_slider_6_1") : window.revapi6;
+					if (window.revapi6 === null || window.revapi6 === undefined || window.revapi6.length == 0) { window.revapi6initTry = window.revapi6initTry === undefined ? 0 : window.revapi6initTry + 1; if (window.revapi6initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider61"].init() }); return; }
+					window.revapi6 = jQuery(window.revapi6);
+					if (window.revapi6.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_6_1"); return; }
+					revapi6.revolutionInit({
+						revapi: "revapi6",
+						sliderLayout: "fullwidth",
+						visibilityLevels: "1240,1024,778,480",
+						gridwidth: "1240,1024,778,480",
+						gridheight: "800,700,600,650",
+						perspectiveType: "local",
+						keepBPHeight: true,
+						editorheight: "800,700,600,650",
+						responsiveLevels: "1240,1024,778,480",
+						stopAtSlide: 1,
+						stopAfterLoops: 0,
+						stopLoop: true,
+						progressBar: { disableProgressBar: true },
+						navigation: {
+							mouseScrollNavigation: false,
+							onHoverStop: false,
+							touch: {
+								touchenabled: true
+							},
+							arrows: {
+								enable: true,
+								style: "uranus",
+								hide_onmobile: true,
+								hide_under: 778,
+								hide_onleave: true,
+								left: {
+									h_offset: 30
+								},
+								right: {
+									h_offset: 30
+								}
+							},
+							bullets: {
+								enable: true,
+								tmp: "",
+								style: "bullet-bar",
+								hide_onleave: true,
+								v_offset: 30,
+								space: 10
+							}
+						},
+						parallax: {
+							levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, -5, -10, -15, -20, -25, 30],
+							type: "scroll",
+							origo: "slideCenter",
+							speed: 1000,
+							speedls: 1000
+						},
+						viewPort: {
+							global: false,
+							globalDist: "-200px",
+							enable: false,
+							visible_area: "80%"
+						},
+						fallbacks: {
+							allowHTML5AutoPlayOnAndroid: true
+						},
 					});
-					} // End of RevInitScript
-				var once_revslider41 = false;
-				if (document.readyState === "loading") {document.addEventListener('readystatechange',function() { if((document.readyState === "interactive" || document.readyState === "complete") && !once_revslider41 ) { once_revslider41 = true; revinit_revslider41();}});} else {once_revslider41 = true; revinit_revslider41();}
-				</script>
-					</body>
+
+				}
+			} // End of RevInitScript
+			if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
+		</script>
+
+
+
+		<style type="text/css">
+			#rev_slider_6_1_wrapper .uranus.tparrows {
+				width: 50px;
+				height: 50px;
+				background: rgba(255, 255, 255, 0)
+			}
+
+			#rev_slider_6_1_wrapper .uranus.tparrows:before {
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				font-size: 40px;
+				transition: all 0.3s;
+				-webkit-transition: all 0.3s
+			}
+
+			#rev_slider_6_1_wrapper .uranus.tparrows.rs-touchhover:before {
+				opacity: 0.75
+			}
+
+			.bullet-bar .tp-bullet {}
+
+			.bullet-bar .tp-bullet:before {
+				content: " ";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: transparent;
+				padding: 10px;
+				margin-left: -10px;
+				margin-top: -10px;
+				box-sizing: content-box
+			}
+
+			.bullet-bar .tp-bullet {
+				width: 60px;
+				height: 3px;
+				position: absolute;
+				background: #aaa;
+				background: rgba(204, 204, 204, 0.5);
+				cursor: pointer;
+				box-sizing: content-box
+			}
+
+			.bullet-bar .tp-bullet.rs-touchhover,
+			.bullet-bar .tp-bullet.selected {
+				background: rgba(204, 204, 204, 1)
+			}
+
+			.bullet-bar .tp-bullet-image {}
+
+			.bullet-bar .tp-bullet-title {}
+
+			@font-face {
+				font-family: 'Material Icons';
+				font-style: normal;
+				font-weight: 400;
+				src: url(//fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2')
+			}
+
+			rs-module .material-icons {
+				font-family: 'Material Icons';
+				font-weight: normal;
+				font-style: normal;
+				font-size: inherit;
+				display: inline-block;
+				text-transform: none;
+				letter-spacing: normal;
+				word-wrap: normal;
+				white-space: nowrap;
+				direction: ltr;
+				vertical-align: top;
+				line-height: inherit;
+				font-feature-settings: 'liga';
+				-webkit-font-smoothing: antialiased;
+				text-rendering: optimizeLegibility;
+				-moz-osx-font-smoothing: grayscale
+			}
+		</style>
+
 		
-		</html>
-		
+</body>
+
+</html>
