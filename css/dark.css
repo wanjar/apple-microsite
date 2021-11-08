@@ -212,11 +212,11 @@ body #side-panel.dark {
 }
 
 .dark .menu-item .sub-menu-trigger {
-	color: #F7F7F7;
+	color: #333;
 }
 
 .dark .menu-link {
-	color: #F7F7F7;
+	color: #333;
 }
 
 .dark .primary-menu:not(.not-dark) .sub-menu-container .menu-item > .menu-link {
@@ -225,7 +225,7 @@ body #side-panel.dark {
 
 .dark .menu-item:hover > .menu-link,
 .dark .menu-item.current > .menu-link {
-	color: #1ABC9C;
+	color: #444;
 }
 
 @media (max-width: 991.98px) {
