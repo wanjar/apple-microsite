@@ -119,7 +119,9 @@
 		}
 	</style>
 	<!-- SLIDER REVOLUTION 6 DEPENDANCIES-->
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700,800,900|Anton:400|Roboto:500&display=swap" rel="stylesheet" type="text/css" />
+	<link
+		href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700,800,900|Anton:400|Roboto:500&display=swap"
+		rel="stylesheet" type="text/css" />
 	<!-- LOAD JQUERY LIBRARY -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
 
@@ -355,6 +357,65 @@
 	<!-- ADD-ONS CSS FILES -->
 	<link rel="stylesheet" type="text/css" href="include/rs-plugin/css/addons/revolution.addon.filmstrip.css">
 
+	<script type="text/javascript">function setREVStartSize(e) {
+			//window.requestAnimationFrame(function() {				 
+			window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+			window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+			try {
+				var pw = document.getElementById(e.c).parentNode.offsetWidth,
+					newh;
+				pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+				e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+				e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+				e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+				e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+				e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+				e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+				e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+				if (e.layout === "fullscreen" || e.l === "fullscreen")
+					newh = Math.max(e.mh, window.RSIH);
+				else {
+					e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+					for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+					e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+					e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+					for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+					var nl = new Array(e.rl.length),
+						ix = 0,
+						sl;
+					e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+					e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+					e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+					e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+					for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+					sl = nl[0];
+					for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+					var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+					newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+				}
+				var el = document.getElementById(e.c);
+				if (el !== null && el) el.style.height = newh + "px";
+				el = document.getElementById(e.c + "_wrapper");
+				if (el !== null && el) {
+					el.style.height = newh + "px";
+					el.style.display = "block";
+				}
+			} catch (e) {
+				console.log("Failure at Presize of Slider:" + e)
+			}
+			//});
+		};</script>
+
+	<script type="text/javascript">
+		window.RS_MODULES = window.RS_MODULES || {};
+		window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+		window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+		window.RS_MODULES.defered = true;
+		window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+		window.RS_MODULES.type = 'compiled';
+	</script>
+
 </head>
 
 <body class="stretched">
@@ -399,16 +460,16 @@
 							<ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250"
 								data-offset="65">
 								<li class="menu-item">
-									<a href="" class="menu-link" data-href="#section-offer"> 
+									<a href="" class="menu-link" data-href="#section-offer">
 										OUR MACBOOK PRO & IPAD EXTENDED WARRANTY OFFER
 									</a>
 								</li>
 								<li class="menu-item">
-									<a href="" class="menu-link" data-href="#section-enquiry"> 
+									<a href="" class="menu-link" data-href="#section-enquiry">
 										MAKE AN ENQUIRY
 									</a>
 								</li>
-								
+
 
 							</ul>
 
@@ -419,149 +480,144 @@
 			</div>
 			<div class="header-wrap-clone"></div>
 		</header><!-- #header end -->
-		
+
 		<section id="slider" class="slider-element slider-parallax revslider-wrap min-vh-0 include-header">
 			<div class="slider-inner">
-		
-			<!-- START RedIngton Apple Activation REVOLUTION SLIDER 6.5.9 --><p class="rs-p-wp-fix"></p>
-			<rs-module-wrap id="rev_slider_6_1_wrapper" data-alias="redington-apple-activation" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
-				<rs-module id="rev_slider_6_1" style="" data-version="6.5.9">
-					<rs-slides>
-						<rs-slide style="position: absolute;" data-key="rs-9" data-title="Slide" data-duration="9000" data-in="o:0;" data-out="a:false;" data-mediafilter="lofi">
-							<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
-<!--
-							--><rs-layer
-								id="slider-6-slide-9-layer-3" 
-								class="rs-pxl-13"
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="x:l,l,l,c;xo:20px,20px,292px,0;y:t,t,t,m;yo:320px,320px,40px,-272px;"
-								data-text="s:20,20,13,8;l:0,0,17,10;"
-								data-dim="w:173px,173px,207px,150.9961px;h:54px,54px,65px,47px;"
-								data-frame_0="y:top;o:1;"
-								data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
-								data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6300;"
-								style="z-index:15;"
-							><img src="assets/Asset-11.png" class="tp-rs-img" width="207" height="65" data-no-retina> 
-							</rs-layer><!--
 
-							--><rs-layer
-								id="slider-6-slide-9-layer-13" 
-								data-type="text"
-								data-color="#000000"
-								data-xy="x:c;xo:393px,393px,1px,0;yo:289px,289px,472px,364px;"
-								data-text="w:normal;s:30,30,24,24;l:50;fw:500;a:center;"
-								data-dim="w:232px,232px,auto,100%;"
-								data-rsp_o="off"
-								data-rsp_bd="off"
-								data-ford="frame_0;frame_1;frame_2;frame_999;"
-								data-frame_0="y:60px;"
-								data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
-								data-frame_999="st:w;sp:500;sR:5900;auto:true;"
-								data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
-								style="z-index:14;font-family:'Poppins';"
-							>Easy does it all. 
-							</rs-layer><!--
+				<!-- START RedIngton Apple Activation REVOLUTION SLIDER 6.5.9 -->
+				<p class="rs-p-wp-fix"></p>
+				<rs-module-wrap id="rev_slider_6_1_wrapper" data-alias="redington-apple-activation"
+					data-source="gallery"
+					style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+					<rs-module id="rev_slider_6_1" style="" data-version="6.5.9">
+						<rs-slides>
+							<rs-slide style="position: absolute;" data-key="rs-9" data-title="Slide"
+								data-duration="9000" data-in="o:0;" data-out="a:false;" data-mediafilter="lofi">
+								<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img"
+									data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
+								<!--
+							-->
+								<rs-layer id="slider-6-slide-9-layer-3" class="rs-pxl-13" data-type="image"
+									data-rsp_ch="on"
+									data-xy="x:l,l,l,c;xo:20px,20px,292px,0;y:t,t,t,m;yo:320px,320px,40px,-272px;"
+									data-text="s:20,20,13,8;l:0,0,17,10;"
+									data-dim="w:173px,173px,207px,150.9961px;h:54px,54px,65px,47px;"
+									data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
+									data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6300;"
+									style="z-index:15;"><img src="assets/Asset-11.png" class="tp-rs-img" width="207"
+										height="65" data-no-retina>
+								</rs-layer>
+								<!--
 
-							--><rs-layer
-								id="slider-6-slide-9-layer-15" 
-								class="rs-pxl-4 rs-pxmask"
-								data-type="text"
-								data-color="#2b2b2b"
-								data-bsh="c:rgba(0,0,0,0.15);v:10px;b:20px;"
-								data-xy="x:c;xo:389px,389px,0,-1px;y:t,t,t,m;yo:359px,359px,527px,126px;"
-								data-text="w:nowrap,nowrap,normal,normal;s:20,20,12,12;l:40;fw:500;a:center;"
-								data-dim="w:206px,206px,123px,125px;"
-								data-actions='o:click;a:scrollbelow;sp:1000ms;e:power1.inOut;'
-								data-rsp_o="off"
-								data-rsp_bd="off"
-								data-padding="r:15;l:15;"
-								data-border="bos:solid;boc:#353535;bow:1px,1px,1px,1px;bor:10px,10px,10px,10px;"
-								data-ford="frame_0;frame_1;frame_2;frame_999;"
-								data-frame_0="y:60px;"
-								data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
-								data-frame_999="st:w;sp:500;sR:5900;auto:true;"
-								data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
-								data-frame_hover="c:#fff;bgc:#0c0000;boc:transparent;bor:0,0,0,0;bos:none;bow:0,0,0,0;sp:300ms;e:power1.inOut;gra:30%;bri:100%;"
-								style="z-index:13;background-color:rgba(53,53,53,0);font-family:'Poppins';cursor:pointer;"
-							> Find Out More 
-							</rs-layer><!--
+							-->
+								<rs-layer id="slider-6-slide-9-layer-13" data-type="text" data-color="#000000"
+									data-xy="x:c;xo:393px,393px,1px,0;yo:289px,289px,472px,364px;"
+									data-text="w:normal;s:30,30,24,24;l:50;fw:500;a:center;"
+									data-dim="w:232px,232px,auto,100%;" data-rsp_o="off" data-rsp_bd="off"
+									data-ford="frame_0;frame_1;frame_2;frame_999;" data-frame_0="y:60px;"
+									data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+									data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+									data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+									style="z-index:14;font-family:'Poppins';">Easy does it all.
+								</rs-layer>
+								<!--
 
-							--><rs-layer
-								id="slider-6-slide-9-layer-17" 
-								class="rs-pxl-15"
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="x:c;xo:-31px,-31px,0,-1px;y:m,m,t,t;yo:-10px,-10px,120px,138px;"
-								data-text="s:20,20,13,8;l:0,0,17,10;"
-								data-dim="w:626px,626px,718.988px,447px;h:310px,310px,357px,222px;"
-								data-frame_0="y:top;o:1;"
-								data-frame_1="e:power4.out;st:1000;sp:2000;sR:1000;"
-								data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6000;"
-								style="z-index:12;"
-							><img src="assets/iPad-Long-1.png" class="tp-rs-img" width="496" height="246" data-no-retina> 
-							</rs-layer><!--
--->						</rs-slide>
-						<rs-slide style="position: absolute;" data-key="rs-14" data-title="Slide" data-thumb="assets/slide1.jpg" data-duration="9000" data-anim="ms:500ms;" data-in="o:0;" data-out="a:false;" data-sloop="s:2500;e:4500;" data-mediafilter="lofi">
-							<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
-<!--
-							--><rs-layer
-								id="slider-6-slide-14-layer-3" 
-								class="rs-pxl-13"
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="x:l,l,l,c;xo:20px,20px,292px,2px;y:t,t,t,m;yo:320px,320px,40px,-209px;"
-								data-text="s:20,20,13,8;l:0,0,17,10;"
-								data-dim="w:173px,173px,207px,150.9961px;h:29px,29px,65px,47px;"
-								data-frame_0="y:top;o:1;"
-								data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
-								data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6300;"
-								style="z-index:15;"
-							><img src="assets/Asset-15.png" class="tp-rs-img" width="336" height="57" data-no-retina> 
-							</rs-layer><!--
+							-->
+								<rs-layer id="slider-6-slide-9-layer-15" class="rs-pxl-4 rs-pxmask" data-type="text"
+									data-color="#2b2b2b" data-bsh="c:rgba(0,0,0,0.15);v:10px;b:20px;"
+									data-xy="x:c;xo:389px,389px,0,-1px;y:t,t,t,m;yo:359px,359px,527px,126px;"
+									data-text="w:nowrap,nowrap,normal,normal;s:20,20,12,12;l:40;fw:500;a:center;"
+									data-dim="w:206px,206px,123px,125px;"
+									data-actions='o:click;a:scrollbelow;sp:1000ms;e:power1.inOut;' data-rsp_o="off"
+									data-rsp_bd="off" data-padding="r:15;l:15;"
+									data-border="bos:solid;boc:#353535;bow:1px,1px,1px,1px;bor:10px,10px,10px,10px;"
+									data-ford="frame_0;frame_1;frame_2;frame_999;" data-frame_0="y:60px;"
+									data-frame_1="y:40px;o:0.5;e:power2.in;st:1100;sp:750;sR:1100;"
+									data-frame_999="st:w;sp:500;sR:5900;auto:true;"
+									data-frame_2="y:0px;o:1;oX:50%;oY:50%;oZ:0;tp:600px;e:power2.out;st:1850;sp:1250;"
+									data-frame_hover="c:#fff;bgc:#0c0000;boc:transparent;bor:0,0,0,0;bos:none;bow:0,0,0,0;sp:300ms;e:power1.inOut;gra:30%;bri:100%;"
+									style="z-index:13;background-color:rgba(53,53,53,0);font-family:'Poppins';cursor:pointer;">
+									Find Out More
+								</rs-layer>
+								<!--
 
-							--><rs-layer
-								id="slider-6-slide-14-layer-17" 
-								class="rs-pxl-15"
-								data-type="image"
-								data-rsp_ch="on"
-								data-xy="x:c;xo:28px,28px,0,-2px;y:m,m,t,t;yo:22px,22px,120px,299px;"
-								data-text="s:20,20,13,8;l:0,0,17,10;"
-								data-dim="w:887px,887px,718.988px,475px;h:267px,267px,357px,143px;"
-								data-frame_0="y:top;o:1;"
-								data-frame_1="e:power4.out;st:1000;sp:2000;sR:1000;"
-								data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6000;"
-								style="z-index:12;"
-							><img src="assets/Asset-14-1.png" class="tp-rs-img" width="902" height="272" data-no-retina> 
-							</rs-layer><!--
--->						</rs-slide>
-					</rs-slides>
-					<rs-static-layers><!--
-					--></rs-static-layers>
-				</rs-module>
-				<script type="text/javascript">
-					
-				</script>
-<script type="text/javascript">
-		if(typeof revslider_showDoubleJqueryError === "undefined") {function revslider_showDoubleJqueryError(sliderID) {console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");console.log("To fix this, you can:");console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");console.log("2. Find the double jQuery.js inclusion and remove it");return "Double Included jQuery Library";}}
-</script>
-			</rs-module-wrap>
-			<!-- END REVOLUTION SLIDER -->
+							-->
+								<rs-layer id="slider-6-slide-9-layer-17" class="rs-pxl-15" data-type="image"
+									data-rsp_ch="on"
+									data-xy="x:c;xo:-31px,-31px,0,-1px;y:m,m,t,t;yo:-10px,-10px,120px,138px;"
+									data-text="s:20,20,13,8;l:0,0,17,10;"
+									data-dim="w:626px,626px,718.988px,447px;h:310px,310px,357px,222px;"
+									data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:1000;sp:2000;sR:1000;"
+									data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6000;"
+									style="z-index:12;"><img src="assets/iPad-Long-1.png" class="tp-rs-img" width="496"
+										height="246" data-no-retina>
+								</rs-layer>
+								<!--
+-->
+							</rs-slide>
+							<rs-slide style="position: absolute;" data-key="rs-14" data-title="Slide"
+								data-thumb="assets/slide1.jpg" data-duration="9000" data-anim="ms:500ms;" data-in="o:0;"
+								data-out="a:false;" data-sloop="s:2500;e:4500;" data-mediafilter="lofi">
+								<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img"
+									data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
+								<!--
+							-->
+								<rs-layer id="slider-6-slide-14-layer-3" class="rs-pxl-13" data-type="image"
+									data-rsp_ch="on"
+									data-xy="x:l,l,l,c;xo:20px,20px,292px,2px;y:t,t,t,m;yo:320px,320px,40px,-209px;"
+									data-text="s:20,20,13,8;l:0,0,17,10;"
+									data-dim="w:173px,173px,207px,150.9961px;h:29px,29px,65px,47px;"
+									data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
+									data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6300;"
+									style="z-index:15;"><img src="assets/Asset-15.png" class="tp-rs-img" width="336"
+										height="57" data-no-retina>
+								</rs-layer>
+								<!--
+
+							-->
+								<rs-layer id="slider-6-slide-14-layer-17" class="rs-pxl-15" data-type="image"
+									data-rsp_ch="on"
+									data-xy="x:c;xo:28px,28px,0,-2px;y:m,m,t,t;yo:22px,22px,120px,299px;"
+									data-text="s:20,20,13,8;l:0,0,17,10;"
+									data-dim="w:887px,887px,718.988px,475px;h:267px,267px,357px,143px;"
+									data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:1000;sp:2000;sR:1000;"
+									data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6000;"
+									style="z-index:12;"><img src="assets/Asset-14-1.png" class="tp-rs-img" width="902"
+										height="272" data-no-retina>
+								</rs-layer>
+								<!--
+-->
+							</rs-slide>
+						</rs-slides>
+						<rs-static-layers>
+							<!--
+					-->
+						</rs-static-layers>
+					</rs-module>
+					<script type="text/javascript">
+
+					</script>
+					<script type="text/javascript">
+						if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+					</script>
+				</rs-module-wrap>
+				<!-- END REVOLUTION SLIDER -->
 
 			</div>
 
 
 		</section>
 
+
 		<!-- Content
 		============================================= -->
-		
+
 		<section id="content">
 			<div class="content-wrap min-vh-100 d-flex align-items-center" id="section-offer">
 				<!-- Product Tiles Start-->
 				<div class="container clearfix" id="anch_offer">
 
-					<div class="row block-card-9 col-mb-50" >
+					<div class="row block-card-9 col-mb-50">
 
 						<div class="col-lg-4 min-vh-75">
 							<div class="grid-inner rounded-3 h-100 shadow-lg">
@@ -631,128 +687,75 @@
 				<!-- Product Tiles End-->
 
 			</div>
-			</section>
+		</section>
 
-			<section>
-<!-- Extended Warranty Slider -->
-	<!-- Slider
+		<section id="slider2" class="slider-element revslider-wrap min-vh-0 include-header">
+			<div class="slider-inner">
+				<!-- Extended Warranty Slider -->
+				<!-- Slider
 ============================================= -->
-<section id="slider" class="slider-element revslider-wrap h-auto">
+				<!-- START Extended Warranty REVOLUTION SLIDER 6.5.9 -->
+				<p class="rs-p-wp-fix">whatsapp</p>
+				<rs-module-wrap id="rev_slider_9_1_wrapper" data-alias="redington-apple-activation-1"
+					data-source="gallery"
+					style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+					<rs-module id="rev_slider_9_1" style="" data-version="6.5.9">
+						<rs-slides>
+							<rs-slide style="position: absolute;" data-key="rs-15" data-title="Slide"
+								data-duration="9000" data-in="o:0;" data-out="a:false;" data-mediafilter="lofi">
+								<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img"
+									data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
+								<!--
+				-->
+								<rs-layer id="slider-9-slide-15-layer-3" class="rs-pxl-13" data-type="image"
+									data-rsp_ch="on"
+									data-xy="x:l,l,l,c;xo:669px,669px,243px,0;y:t,t,t,m;yo:228px,228px,404px,82px;"
+									data-text="s:20,20,13,8;l:0,0,17,10;"
+									data-dim="w:369px,369px,341px,290px;h:185px,185px,171px,145px;"
+									data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:700;sp:2000;sR:700;"
+									data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6300;"
+									style="z-index:15;"><img src="assets/Apple-Banner-1000.png" class="tp-rs-img"
+										width="1000" height="500" data-no-retina>
+								</rs-layer>
+								<!--
 
-	<div class="rev_slider_wrapper" style="margin:0px auto;background:#eeeeee;padding:0px;margin-top:0px;margin-bottom:0px;">
-		<!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
-		<div id="rev_slider_21_1" class="rev_slider fullscreenabanner" style="display:none;" data-version="5.4.1">
-			<ul>	<!-- SLIDE  -->
-				<li data-index="rs-57" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-filmstrip='{"direction":"right-to-left","filter":"none","times":"40,40,40,40","alt":""}]}'>
-					<!-- MAIN IMAGE -->
-					<img src="include/rs-plugin/demos/assets/images/transparent.png" data-bgcolor='#f5f5f5' style='background:#f5f5f5' alt="Image"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-					<!-- LAYERS -->
+				-->
+								<rs-layer id="slider-9-slide-15-layer-17" class="rs-pxl-15" data-type="image"
+									data-rsp_ch="on"
+									data-xy="x:c;xo:-186px,-186px,3px,3px;y:m,m,t,t;yo:-12px,-12px,9px,43px;"
+									data-text="s:20,20,13,8;l:0,0,17,10;"
+									data-dim="w:626px,626px,718.988px,463px;h:305px,305px,357px,226px;"
+									data-frame_0="y:top;o:1;" data-frame_1="e:power4.out;st:1000;sp:2000;sR:1000;"
+									data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6000;"
+									style="z-index:12;"><img
+										src="assets/Multi-Product_Mac_Mini_MacBook_Air_iMac_MacBook_Pro_13-in_M1_chip_Family_4-up_Print__USEN.png"
+										class="tp-rs-img" width="1000" height="488" data-no-retina>
+								</rs-layer>
+								<!--
+-->
+							</rs-slide>
+						</rs-slides>
+						<rs-static-layers>
+							<!--
+		-->
+						</rs-static-layers>
+					</rs-module>
+					<script type="text/javascript">
 
-					<!-- LAYER NR. 1 -->
-					<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
-						 id="slide-57-layer-2"
-						 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-						 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-									data-width="full"
-						data-height="full"
-						data-whitespace="nowrap"
+					</script>
+					<script type="text/javascript">
+						if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+					</script>
+				</rs-module-wrap>
+				<!-- END REVOLUTION SLIDER -->
 
-						data-type="shape"
-						data-basealign="slide"
-						data-responsive_offset="on"
+			</div>
 
-						data-frames='[{"delay":10,"speed":600,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":600,"frame":"999","to":"opacity:0;","ease":"Power4.easeOut"}]'
-						data-textAlign="['inherit','inherit','inherit','inherit']"
-						data-paddingtop="[0,0,0,0]"
-						data-paddingright="[0,0,0,0]"
-						data-paddingbottom="[0,0,0,0]"
-						data-paddingleft="[0,0,0,0]"
-						data-lasttriggerstate="reset"
-						style="z-index: 5;background-color:rgba(0, 0, 0, 0.35);"> </div>
-
-					<!-- LAYER NR. 2 -->
-					<div class="tp-caption   tp-resizeme"
-						 id="slide-57-layer-1"
-						 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-						 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-						data-fontsize="['10vw','10vw','10vw','10vw']"
-						data-lineheight="['10vw','10vw','10vw','10vw']"
-						data-width="full"
-						data-height="full"
-						data-whitespace="nowrap"
-
-						data-type="text"
-						data-basealign="slide"
-						data-responsive_offset="on"
-
-						data-frames='[{"delay":10,"speed":1000,"frame":"0","from":"opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"opacity:0;fb:20px;","ease":"Power4.easeOut"}]'
-						data-textAlign="['center','center','center','center']"
-						data-paddingtop="[137,197,297,327]"
-						data-paddingright="[50,50,50,50]"
-						data-paddingbottom="[125,125,175,225]"
-						data-paddingleft="[50,50,50,50]"
-						data-blendmode="screen"
-						data-lasttriggerstate="reset"
-						style="z-index: 6; min-width: 80%; max-width: 80%; white-space: nowrap; font-size: 6vw; line-height: 8vw; font-weight: 400; color: rgba(0,0,0,1);font-family:Anton;background-color:rgba(245, 245, 245, 1);">Get a 2 year warranty <br/> on any iPad or Macbook <br/>on purchasing it from <br/>an authorized dealer.</div>
-
-					<!-- LAYER NR. 3 -->
-					<div class="tp-caption rev-btn "
-						 id="slide-57-layer-4"
-						 data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']"
-						 data-y="['top','top','top','top']" data-voffset="['0','0','0','0']"
-									data-width="60"
-						data-height="60"
-						data-whitespace="nowrap"
-
-						data-type="button"
-						data-actions='[{"event":"click","action":"togglelayer","layerstatus":"visible","layer":"slide-57-layer-1","delay":""},{"event":"click","action":"togglelayer","layerstatus":"visible","layer":"slide-57-layer-2","delay":""},{"event":"click","action":"togglelayer","layerstatus":"visible","layer":"slide-57-layer-6","delay":""}]'
-						data-basealign="slide"
-						data-responsive_offset="on"
-						data-responsive="off"
-						data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"150","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1);bg:rgba(0, 0, 0, 1);bs:solid;bw:0 0 0 0;"}]'
-						data-textAlign="['center','center','center','center']"
-						data-paddingtop="[0,0,0,0]"
-						data-paddingright="[0,0,0,0]"
-						data-paddingbottom="[0,0,0,0]"
-						data-paddingleft="[0,0,0,0]"
-
-						style="z-index: 7; font-size: 17px; line-height: 60px; font-weight: 500; color: rgba(0,0,0,1);font-family:Roboto;background-color:rgba(255, 255, 255, 1);border-color:rgba(0, 0, 0, 1);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><div class="rs-toggled-content"><i class="icon-external-link"></i> </div><div class="rs-untoggled-content"><i class="icon-line-minimize"></i></div></div>
-
-					<!-- LAYER NR. 4 -->
-					<a class="tp-caption rev-btn  tp-resizeme"
-						 href="#section-enquiry"			 id="slide-57-layer-6"
-						 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-						 data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','40','40','40']"
-									data-width="none"
-						data-height="none"
-						data-whitespace="nowrap"
-
-						data-type="button"
-						data-basealign="slide"
-						data-responsive_offset="on"
-
-						data-frames='[{"delay":0,"speed":600,"frame":"0","from":"opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":600,"frame":"999","to":"opacity:0;fb:20px;","ease":"Power4.easeOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(0, 0, 0, 1);bg:rgba(255, 255, 255, 1);bc:rgba(0, 0, 0, 1);"}]'
-						data-textAlign="['inherit','inherit','inherit','inherit']"
-						data-paddingtop="[0,0,0,0]"
-						data-paddingright="[50,50,50,50]"
-						data-paddingbottom="[0,0,0,0]"
-						data-paddingleft="[50,50,50,50]"
-						data-lasttriggerstate="reset"
-						style="z-index: 8; white-space: nowrap; font-size: 17px; line-height: 50px; font-weight: 700; color: rgba(0,0,0,1);font-family:arial;background-color:rgba(255, 255, 255, 0);border-color:rgba(0, 0, 0, 0.25);border-style:solid;border-width:2px 2px 2px 2px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">Click Here For Great Offers </a>
-				</li>
-			</ul>
-			<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
-		</div>
-	</div><!-- END REVOLUTION SLIDER -->
-
-</section>
-
-
-			</section>
+		</section>
 
 
 
-			<section>
+		<section>
 			<!--<div style="display: flex; align-items: center; justify-content: center;">
 				
 				<a href="#section-enquiry"  class="button button-3d button-rounded gradient-light button-light"><i class="icon-trash2"></i> Click Here For Great Offers</a>
@@ -893,18 +896,7 @@
 	<script src="js/plugins.min.js"></script>
 	<script src="https://maps.google.com/maps/api/js?key=YOUR-API-KEY"></script>
 
-	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
-	<script src="include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-	<script src="include/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-
-	<script src="include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+	
 
 	<!-- Footer Scripts
 	============================================= -->
@@ -986,92 +978,72 @@
 	</script>
 
 	<!-- EXTENDED WARRANTY SLIDER ADD-ONS JS FILES -->
-
-	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
-	<script src="include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-	<script src="include/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="include/rs-plugin/js/addons/revolution.addon.filmstrip.min.js"></script>
-
-	<script src="include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.carousel.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script src="include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
-
-	<script>
-		var tpj=jQuery;
-		var revapi21;
-		var $ = jQuery.noConflict();
-
-		tpj(document).ready(function() {
-			if(tpj("#rev_slider_21_1").revolution == undefined){
-				revslider_showDoubleJqueryError("#rev_slider_21_1");
-			}else{
-				revapi21 = tpj("#rev_slider_21_1").show().revolution({
-					sliderType:"standard",
-					jsFileLocation:"include/rs-plugin/js/",
-					sliderLayout:"fullscreen",
-					dottedOverlay:"none",
-					delay:9000,
+	<script type="text/javascript">
+		var tpj = jQuery;
+		if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+		if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+		RS_MODULES.modules["revslider91"] = {
+			once: RS_MODULES.modules["revslider91"] !== undefined ? RS_MODULES.modules["revslider91"].once : undefined, init: function () {
+				window.revapi9 = window.revapi9 === undefined || window.revapi9 === null || window.revapi9.length === 0 ? document.getElementById("rev_slider_9_1") : window.revapi9;
+				if (window.revapi9 === null || window.revapi9 === undefined || window.revapi9.length == 0) { window.revapi9initTry = window.revapi9initTry === undefined ? 0 : window.revapi9initTry + 1; if (window.revapi9initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider91"].init() }); return; }
+				window.revapi9 = jQuery(window.revapi9);
+				if (window.revapi9.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_9_1"); return; }
+				revapi9.revolutionInit({
+					revapi: "revapi9",
+					DPR: "dpr",
+					sliderLayout: "fullwidth",
+					visibilityLevels: "1240,1240,778,480",
+					gridwidth: "1080,1080,778,480",
+					gridheight: "663,663,600,650",
+					perspective: 600,
+					perspectiveType: "local",
+					keepBPHeight: true,
+					editorheight: "663,663,600,650",
+					responsiveLevels: "1240,1240,778,480",
+					startWithSlide: 1,
+					progressBar: {
+						alignby: "grid",
+						size: 5,
+						x: 0,
+						y: 0
+					},
 					navigation: {
-						keyboardNavigation:"off",
-						keyboard_direction: "horizontal",
-						mouseScrollNavigation:"off",
-						 mouseScrollReverse:"default",
-						onHoverStop:"off",
-						arrows: {
-							style:"metis",
-							enable:false,
-							hide_onmobile:false,
-							hide_onleave:false,
-							tmp:'',
-							left: {
-								h_align:"left",
-								v_align:"center",
-								h_offset:0,
-								v_offset:0
-							},
-							right: {
-								h_align:"right",
-								v_align:"center",
-								h_offset:0,
-								v_offset:0
-							}
+						mouseScrollNavigation: false,
+						wheelCallDelay: 1000,
+						onHoverStop: false,
+						touch: {
+							touchenabled: true
 						}
 					},
-					responsiveLevels:[1240,1024,778,480],
-					visibilityLevels:[1240,1024,778,480],
-					gridwidth:[1240,1024,778,480],
-					gridheight:[600,600,500,400],
-					lazyType:"none",
-					shadow:0,
-					spinner:"off",
-					stopLoop:"on",
-					stopAfterLoops:0,
-					stopAtSlide:1,
-					shuffle:"off",
-					autoHeight:"off",
-					disableProgressBar:"on",
-					hideThumbsOnMobile:"off",
-					hideSliderAtLimit:0,
-					hideCaptionAtLimit:0,
-					hideAllCaptionAtLilmit:0,
-					debugMode:false,
+					parallax: {
+						levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, -5, -10, -15, -20, -25, 30],
+						type: "scroll",
+						origo: "slideCenter",
+						speed: 1000,
+						speedls: 1000
+					},
+					fanim: {
+						in: { "o": 0 },
+						out: { "a": false },
+						speed: 300
+					},
+					viewPort: {
+						global: false,
+						globalDist: "-200px",
+						enable: true,
+						visible_area: "80%"
+					},
 					fallbacks: {
-						simplifyAll:"off",
-						nextSlideOnWindowFocus:"off",
-						disableFocusListener:false,
-					}
+						allowHTML5AutoPlayOnAndroid: true
+					},
 				});
-			}
 
-			RsFilmstripAddOn(tpj, revapi21, "include/rs-plugin/js/", false);
-		});	/*ready*/
+			}
+		} // End of RevInitScript
+		if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
 	</script>
+
+
 
 </body>
 
