@@ -13376,7 +13376,7 @@ blockquote.float-end {
 	background-color: #ffffff;
 	background-image: none;
 	border: 2px solid #DDD;
-	border-radius: 0 !important;
+	border-radius: 1em;
 	-webkit-transition: border-color ease-in-out .15s;
 	-o-transition: border-color ease-in-out .15s;
 	transition: border-color ease-in-out .15s;
