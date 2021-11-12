@@ -36,7 +36,7 @@ input, button {
 
 input, select {
   border: 1px solid #CCC;
-  width: 250px; }
+  /*width: 250px;*/ }
 
 ::-webkit-input-placeholder {
   color: #BBB; }
