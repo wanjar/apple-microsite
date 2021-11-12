@@ -415,6 +415,11 @@
 		window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
 		window.RS_MODULES.type = 'compiled';
 	</script>
+<!-- INTERNATIONAL CALLING -->
+
+<link rel="stylesheet" href="build/css/intlTelInput.css">
+<link rel="stylesheet" href="build/css/demo.css">
+
 
 </head>
 
@@ -673,7 +678,7 @@
 		</section><!-- #content end -->
 	<!-- END OF PRODUCT TILES -->
 <!-- EXTENDED WARRANTY SLIDER -->
-
+<section>
 
 		<!-- START Extended Warranty REVOLUTION SLIDER 6.5.9 --><p class="rs-p-wp-fix"></p>
 		<rs-module-wrap id="rev_slider_9_1_wrapper" data-alias="redington-apple-activation-1" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
@@ -709,7 +714,7 @@
 </script>
 		</rs-module-wrap>
 		<!-- END REVOLUTION SLIDER -->
-
+	</section>
 		<section>
 			
 			<div class="content-wrap min-vh-100 d-flex align-items-center" id="section-enquiry" style="background-color:#f7fbfc;">
@@ -753,27 +758,10 @@
 										class="required email sm-form-control border-form-control"
 										placeholder="Email*" />
 								</div>
-
-								<div class="w-100"></div>
-								<div class="col-md-3 mb-4">
-									<!--<input type="text" id="template-contactform-phone" name="template-contactform-country-code"
-										value="" class="sm-form-control border-form-control" placeholder="Country Code" />-->
-										<!--<label for="">Select With Drop Down</label>-->
-
-										<select name="countryCode" id="" class="sm-form-control">
-											<option data-countryCode="KE" value="254" Selected>Kenya (+254)</option>
-											<option data-countryCode="UG" value="256">Uganda (+256)</option>
-											<option data-countryCode="TZ" value="255">Tanzania (+255)</option>
-											
-										
-
-											
-										</select>
+								<div class="col-md-6 mb-4">
 									
-								</div>
-								<div class="col-md-3 mb-4">
-									<input type="text" id="template-contactform-phone" name="template-contactform-phone"
-										value="" class="sm-form-control border-form-control" placeholder="Telephone No." />
+									<input id="phone" name="phone" type="tel"
+										value="" class="sm-form-control border-form-control" placeholder="Telephone No."/>
 								</div>
 
 								<div class="col-md-6 mb-4">
@@ -800,11 +788,16 @@
 									<select id="reseller" name="reseller" id="template-contactform-reseller"
 										class="sm-form-control">
 										<option value="" disabled selected>Select Your Option</option>
-										<option value="iWorld">Elite Digital</option>
+										<option value="Elite DIgital Solutions">Elite Digital Solutions</option>
 										<option value="iWorld">Salute iWorld</option>
 										<option value="Globoedge">Globoedge</option>
 										<option value="Mac & More">Mac & More</option>
 										<option value="Gametroniq">Gametroniq</option>
+										<option value="iStore">iStore</option>
+										<option value="iConnect">iConnect</option>
+										<option value="iDevices Store">iDevices Store</option>
+										<option value="Slot Systems Limited">Slot Systems Limited</option>
+										<option value="Dreamworks Direct">Dreamworks Direct</option>
 
 									</select>
 								</div>
@@ -1027,9 +1020,42 @@
 		if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
 	</script>
 
+<script>
+$("#countryCode").on("change", function() {
+  $('#template-contactform-phone').val($('option:selected', this).data('countryCode'));
+});
 
+</script>
 
+<!-- INTERNATIONAL CALLING CODE-->
 
+<script src="build/js/intlTelInput.js"></script>
+  <script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+      // allowDropdown: false,
+      // autoHideDialCode: false,
+      // autoPlaceholder: "off",
+      // dropdownContainer: document.body,
+      // excludeCountries: ["us"],
+      // formatOnDisplay: false,
+      // geoIpLookup: function(callback) {
+      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      //     var countryCode = (resp && resp.country) ? resp.country : "";
+      //     callback(countryCode);
+      //   });
+      // },
+      // hiddenInput: "full_number",
+      // initialCountry: "auto",
+      // localizedCountries: { 'de': 'Deutschland' },
+      // nationalMode: false,
+      onlyCountries: ['ke', 'ug', 'tz', 'gh', 'ng'],
+      // placeholderNumberType: "MOBILE",
+      // preferredCountries: ['cn', 'jp'],
+      // separateDialCode: true,
+      utilsScript: "build/js/utils.js",
+    });
+  </script>
 
 </body>
 
