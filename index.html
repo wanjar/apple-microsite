@@ -427,6 +427,59 @@
 <link rel="stylesheet" href="build/css/intlTelInput.css">
 
 
+<!-- International Calling Local Agent Picker-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+		
+
+	 /* $(function() {
+            $('.reseller').hide();
+            input.addEventListener("countrychange", function() {
+                $('.reseller').hide();
+                var countryCode = iti.getSelectedCountryData().name;
+                $('.reseller.' + countryCode).show();
+            });
+        });	*/
+
+		
+
+    	$(function() {
+            $('.reseller').hide();
+			
+			input.addEventListener("countrychange", function() {
+			
+			
+				var input = document.querySelector('#phone');
+				var iti = window.intlTelInputGlobals.getInstance(input);
+				var countryName = iti.getSelectedCountryData().name;
+
+				
+				$('.' + countryName).show();
+
+			});
+
+
+
+            /*$('#phone').on('change', function() {
+               
+                /*var countryCode = $('#phone').intlTelInput('getSelectedCountryData');
+				var countryName = $('#phone').intlTelInput('getSelectedCountryData').dailCode;
+                $('.reseller ').show();*/
+            });
+				
+
+
+
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput-jquery.min.js"></script>
+<link rel="stylesheet" href="location/to/intl-tel-input/css/intlTelInput.css">
+<script src="build/js/intlTelInput.js"></script>
+<script  src="build/js/utils.js"></script>
+<script  src="build/js/intlTelInput-jquery.js"></script>
+<script  src="build/js/data.js"></script>
+
 
 </head>
 
@@ -770,12 +823,13 @@
 
 								<div class="w-100"></div>
 								
-								<div class="col-md-4 mb-4">
+								
+								<div class="col-md-3 mb-4">
 									<input id="phone" name="phone" type="tel"
 										value="" class="sm-form-control border-form-control" placeholder="Telephone No."/>
 								</div>
 
-								<div class="col-md-8 mb-4">
+								<div class="col-md-6 mb-4">
 									<input type="text" id="template-contactform-subject" name="subject" value=""
 										class="required sm-form-control border-form-control" placeholder="Location" />
 								</div>
@@ -795,20 +849,20 @@
 								</div>
 
 								<div class="col-12 mb-4">
-									<label for="cars">Select Authorized Reseller:</label>
+									<label for="resellers">Select Authorized Reseller:</label>
 									<select id="reseller" name="reseller" id="template-contactform-reseller"
 										class="sm-form-control">
 										<option value="" disabled selected>Select Your Option</option>
-										<option value="Elite DIgital Solutions">Elite Digital Solutions</option>
-										<option value="iWorld">Salute iWorld</option>
-										<option value="Globoedge">Globoedge</option>
-										<option value="Mac & More">Mac & More</option>
-										<option value="Gametroniq">Gametroniq</option>
-										<option value="iStore">iStore</option>
-										<option value="iConnect">iConnect</option>
-										<option value="iDevices Store">iDevices Store</option>
-										<option value="Slot Systems Limited">Slot Systems Limited</option>
-										<option value="Dreamworks Direct">Dreamworks Direct</option>
+										<option id ="reseller Tanzania"class= "reseller 255" value="Elite DIgital Solutions">Elite Digital Solutions</option>
+										<option class=" reseller Kenya" value="reseller 254" >Salute iWorld</option>
+										<option class= "reseller Kenya" value="Globoedge">Globoedge</option>
+										<option class= "reseller Kenya" value="Mac & More">Mac & More</option>
+										<option class= "reseller Kenya" value="Gametroniq">Gametroniq</option>
+										<option class= "reseller Tanzania" value="iStore">iStore</option>
+										<option class= "reseller Nigeria" value="iConnect">iConnect</option>
+										<option class= "reseller Nigeria" value="iDevices Store">iDevices Store</option>
+										<option  class= "reseller Nigeria"value="Slot Systems Limited">Slot Systems Limited</option>
+										<option class= "reseller Nigeria" value="Dreamworks Direct">Dreamworks Direct</option>
 
 									</select>
 								</div>
@@ -1061,7 +1115,14 @@
       // separateDialCode: true,
       utilsScript: "build/js/utils.js",
     });
+
+	window.details = details;
   </script>
+
+
+<!-- FORM DYNAMIC SELECT-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 
 
 
