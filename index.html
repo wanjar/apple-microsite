@@ -448,7 +448,7 @@
             $('.reseller').hide();
 			
 			input.addEventListener("countrychange", function() {
-			
+				$('.reseller').hide();
 			
 				var input = document.querySelector('#phone');
 				var iti = window.intlTelInputGlobals.getInstance(input);
