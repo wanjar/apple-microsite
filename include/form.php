@@ -3,7 +3,7 @@
 /*-------------------------------------------------
 
 	Form Processor Plugin
-	by SemiColonWeb
+
 
 ---------------------------------------------------*/
 
@@ -27,7 +27,7 @@ require 'phpmailer/src/SMTP.php';
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'digital@adverteyez.com', // Your Email Address
+				'email' => 'wanja@digitalplatforms.co.ke', // Your Email Address
 				'name' => 'Apple Extended Warranty' // Your Name
 			);
 
