@@ -27,7 +27,7 @@ require 'phpmailer/src/SMTP.php';
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'wanja@digitalplatforms.co.ke', // Your Email Address
+				'email' => 'digital@applereddingtongulf.co.ke', // Your Email Address
 				'name' => 'Apple Extended Warranty' // Your Name
 			);
 
@@ -37,7 +37,7 @@ $toemails[] = array(
 ---------------------------------------------------*/
 
 $fromemail = array(
-				'email' => 'digital@adverteyez.com', // Company's Email Address (preferably currently used Domain Name)
+				'email' => 'digital@applereddingtongulf.co.ke', // Company's Email Address (preferably currently used Domain Name)
 				'name' => 'Redington' // Company Name
 			);
 
@@ -56,7 +56,14 @@ $recaptcha_secret = ''; // Your reCaptcha Secret
 
 $mail = new PHPMailer();
 
-/* Add your SMTP Codes after this Line */
+$mail->IsSMTP();
+$mail->Host = "email-smtp.us-east-1.amazonaws.com";
+$mail->SMTPDebug = 0;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = "tls";
+$mail->Port = 465;
+$mail->Username = "AKIATYHRX3VJMIN67IMD";
+$mail->Password = "BKFuTQmUEl+PsHULL1A2UzHvYjGPwcJvoL5EMFGC7aq2";
 
 
 // End of SMTP
