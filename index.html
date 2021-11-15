@@ -366,30 +366,16 @@
 
 	<link rel="stylesheet" href="build/css/intlTelInput.css">
 
+	<!-- Dynamically Populate Resellers List-->
 	<script>
 
 		$(function () {
 			var resellers = $('#reseller').empty();
-
-
-
-
-
-
-
 			input.addEventListener("countrychange", function () {
-				//$('.reseller').hide();
-
-
-
+				
 				var input = document.querySelector('#phone');
 				var iti = window.intlTelInputGlobals.getInstance(input);
 				var countryName = iti.getSelectedCountryData().name;
-
-				//alert(countryName);
-
-
-
 				var selectobject = document.getElementById("reseller");
 				if ('Kenya' === countryName) {
 					resellers.empty();
@@ -426,6 +412,42 @@
 
 
 	</script>
+
+	<!--Dynamically Populate Location List-->
+	<script>
+
+		$(function () {
+			var resellers = $('#location');
+			input.addEventListener("countrychange", function () {
+				
+				var input = document.querySelector('#phone');
+				var iti = window.intlTelInputGlobals.getInstance(input);
+				var countryName = iti.getSelectedCountryData().name;
+				var selectobject = document.getElementById("location");
+
+				if ('Kenya' === countryName) {
+					selectobject.value = 'Kenya';
+				}
+				if ('Uganda' === countryName) {
+					selectobject.value = 'Uganda';
+				}
+				if ('Tanzania' === countryName) {
+					selectobject.value = 'Tanzania';
+				}
+				if ('Ghana' === countryName) {
+					selectobject.value = 'Ghana';
+				}
+				if ('Nigeria' === countryName) {
+					selectobject.value = 'Nigeria';
+				}
+
+
+			});
+
+		});
+	</script>
+
+	<!--Supporting Scripts-->
 	<script src="build/js/intlTelInput.js"></script>
 	<script src="build/js/utils.js"></script>
 	<script src="build/js/intlTelInput-jquery.js"></script>
@@ -769,7 +791,7 @@
 							<div class="form-result"></div>
 
 							<form class="row mb-0" id="template-contactform" name="template-contactform"
-							action="include/form.php" method="post">
+							action="include/form.php" method="post" enctype="application/x-www-form-urlencoded">
 
 								<div class="form-process">
 									<div class="css3-spinner">
@@ -804,7 +826,7 @@
 								</div>
 
 								<div class="col-md-8 mb-4">
-									<input type="text" id="template-contactform-subject" name="subject" value=""
+									<input id="location" type="text" id="template-contactform-subject" name="location" value=""
 										class="required sm-form-control border-form-control" placeholder="Location" />
 								</div>
 
@@ -824,32 +846,6 @@
 
 								<div class="col-12 mb-4">
 									<label for="resellers">Select Authorized Reseller:</label>
-
-									<!--<ul id="reseller" name="reseller" id="template-contactform-reseller"
-									class="sm-form-control">
-									<li value="" disabled selected>Select Your Option</li>
-									<li class="reseller Kenya 254" value="Elite DIgital Solutions">Elite Digital
-										Solutions</li>
-									<li class="reseller Uganda 256" value="Elite DIgital Solutions">Elite
-										Digital Solutions</li>
-									<li class="reseller Tanzania 255 " value="Elite DIgital Solutions">Elite
-										Digital Solutions</li>
-									<li class=" reseller Kenya 254" value="reseller 254">Salute iWorld</li>
-									<li class="reseller Kenya 254" value="Globoedge">Globoedge</li>
-									<li class="reseller Kenya 254" value="Mac & More">Mac & More</li>
-									<li class="reseller Kenya 254" value="Gametroniq">Gametroniq</li>
-									<li class="reseller Tanzania 255" value="iStore">iStore</li>
-									<li class="reseller Ghana" value="iStore">iStore</li>
-									<li class="reseller Nigeria 234" value="iConnect">iConnect</li>
-									<li class="reseller Nigeria 234" value="iDevices Store">iDevices Store
-									</li>
-									<li class="reseller Nigeria 234" value="iDevices Store">Casper</li>
-									<li class="reseller Nigeria 234" value="Slot Systems Limited">Slot Systems
-										Limited</li>
-									<li class="reseller Nigeria 234" value="Dreamworks Direct">Dreamworks Direct
-									</li>
-
-								</ul>-->
 									<select id="reseller" name="reseller" id="template-contactform-reseller"
 										class="sm-form-control">
 										<option value="" disabled selected>Select Your Option</option>
@@ -906,6 +902,7 @@
 								</div>
 
 								<input type="hidden" name="prefix" value="template-contactform-">
+								<input type="hidden" name="subject" value="Message from Contact Form">
 
 							</form>
 
