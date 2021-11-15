@@ -427,20 +427,51 @@
 	<link rel="stylesheet" href="build/css/intlTelInput.css">
 
 	<script>
-		// Working Function
+
 		$(function () {
-			$('.reseller').hide();
-			
+			var resellers = $('#reseller').empty();
+
+
+
+
+
+
 
 			input.addEventListener("countrychange", function () {
-				$('.reseller').hide();
+				//$('.reseller').hide();
+
+
 
 				var input = document.querySelector('#phone');
 				var iti = window.intlTelInputGlobals.getInstance(input);
 				var countryName = iti.getSelectedCountryData().name;
 
+				//alert(countryName);
 
-				$('.' + countryName).show();
+				
+
+				var selectobject = document.getElementById("reseller");
+				if ('Kenya' === countryName) {
+					resellers.empty();
+					resellers.append('<option value="" disabled selected>Select Your Preferred Reseller</option><br/><option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">Elite Digital Solutions</option><option class=" reseller Kenya" data-sel="reseller Kenya" value="Kenya">Salute iWorld</option><br/><option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">Globoedge</option><br/><option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">Mac & More</option><br/><option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">Gametroniq</option>');
+				}
+				if ('Uganda' === countryName) {
+					resellers.empty();
+					resellers.append('<option value="" disabled selected>Select Your Preferred Reseller</option><br/><option class="reseller Uganda" data-sel="reseller Uganda" value="Uganda">Elite Digital Solutions</option>');
+				}
+				if ('Tanzania' === countryName) {
+					resellers.empty();
+					resellers.append('<option value="" disabled selected>Select Your Preferred Reseller</option><br/><option class="reseller Tanzania" data-sel="reseller Tanzania" value="Tanzania">iStore</option><br/><option class="reseller Tanzania" data-sel="reseller Tanzania" value="Tanzania">Elite Digital Solutions</option>');
+				}
+				if ('Ghana' === countryName) {
+					resellers.empty();
+					resellers.append('<option value="" disabled selected>Select Your Preferred Reseller</option><br/><option class="reseller Ghana" data-sel="reseller Ghana" value="Ghana">iStore</option>');
+				}
+				if ('Nigeria' === countryName) {
+					resellers.empty();
+					resellers.append('<option value="" disabled selected>Select Your Preferred Reseller</option><br/><option class="reseller Nigeria" data - sel="reseller Nigeria" value = "Nigeria" > iConnect </option><option class="reseller Nigeria" data - sel="reseller Nigeria" value = "Nigeria" >iDevices Store</option><option class="reseller Nigeria" data - sel="reseller Nigeria" value = "Nigeria" > Casper </option><option class="reseller Nigeria" data - sel="reseller Nigeria" value = "Nigeria" >Slot Systems Limited </option><option class="reseller Nigeria" data - sel="reseller Nigeria" value = "Nigeria" >Dreamworks Direct</option>');
+				}
+				
 
 			});
 
@@ -448,11 +479,11 @@
 
 
 
-		
 
-		// New Function To Deal With Safari/Opera/IE Compatibility
-		
-		
+
+
+
+
 
 	</script>
 
@@ -866,25 +897,38 @@
 									<select id="reseller" name="reseller" id="template-contactform-reseller"
 										class="sm-form-control">
 										<option value="" disabled selected>Select Your Option</option>
-										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Elite DIgital Solutions">Elite Digital
+										<option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">Elite
+											Digital
 											Solutions</option>
-										<option class="reseller Uganda" data-sel= "reseller Uganda" value="Elite DIgital Solutions">Elite
+										<option class="reseller Uganda" data-sel="reseller Uganda" value="Uganda">Elite
 											Digital Solutions</option>
-										<option class="reseller Tanzania" data-sel= "reseller Tanzania"  value="Elite DIgital Solutions">Elite
+										<option class="reseller Tanzania" data-sel="reseller Tanzania" value="Tanzania">
+											Elite
 											Digital Solutions</option>
-										<option class=" reseller Kenya" data-sel= "reseller Kenya" value="reseller 254">Salute iWorld</option>
-										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Globoedge">Globoedge</option>
-										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Mac & More">Mac & More</option>
-										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Gametroniq">Gametroniq</option>
-										<option class="reseller Tanzania" data-sel= "reseller Tanzania" value="iStore">iStore</option>
-										<option class="reseller Ghana" data-sel= "reseller Ghana" value="iStore">iStore</option>
-										<option class="reseller Nigeria"  data-sel= "reseller Nigeria"value="iConnect">iConnect</option>
-										<option class="reseller Nigeria" data-sel= "reseller Nigeria"value="iDevices Store">iDevices Store
+										<option class=" reseller Kenya" data-sel="reseller Kenya" value="Kenya">Salute
+											iWorld</option>
+										<option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">Globoedge
 										</option>
-										<option class="reseller Nigeria" data-sel= "reseller Nigeria" value="iDevices Store">Casper</option>
-										<option class="reseller Nigeria" data-sel= "reseller Nigeria" value="Slot Systems Limited">Slot Systems
+										<option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">Mac &
+											More</option>
+										<option class="reseller Kenya" data-sel="reseller Kenya" value="Kenya">
+											Gametroniq</option>
+										<option class="reseller Tanzania" data-sel="reseller Tanzania" value="Tanzania">
+											iStore</option>
+										<option class="reseller Ghana" data-sel="reseller Ghana" value="Ghana">iStore
+										</option>
+										<option class="reseller Nigeria" data-sel="reseller Nigeria" value="Nigeria">
+											iConnect</option>
+										<option class="reseller Nigeria" data-sel="reseller Nigeria" value="Nigeria">
+											iDevices Store
+										</option>
+										<option class="reseller Nigeria" data-sel="reseller Nigeria" value="Nigeria">
+											Casper</option>
+										<option class="reseller Nigeria" data-sel="reseller Nigeria" value="Nigeria">
+											Slot Systems
 											Limited</option>
-										<option class="reseller Nigeria" data-sel= "reseller Nigeria" value="Dreamworks Direct">Dreamworks Direct
+										<option class="reseller Nigeria" data-sel="reseller Nigeria" value="Nigeria">
+											Dreamworks Direct
 										</option>
 
 									</select>
