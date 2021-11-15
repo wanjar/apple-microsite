@@ -212,55 +212,55 @@
 	<script type="text/javascript" src="js/rbtools.min.js"></script>
 	<script type="text/javascript" src="js/rs6.min.js"></script>
 
-	<script type="text/javascript">function setREVStartSize(e){
-		//window.requestAnimationFrame(function() {				 
-			window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
-			window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
-			try {								
+	<script type="text/javascript">function setREVStartSize(e) {
+			//window.requestAnimationFrame(function() {				 
+			window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+			window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+			try {
 				var pw = document.getElementById(e.c).parentNode.offsetWidth,
 					newh;
-				pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
-				e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
-				e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
-				e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
-				e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
-				e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
-				e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
-				e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
-				if(e.layout==="fullscreen" || e.l==="fullscreen") 						
-					newh = Math.max(e.mh,window.RSIH);					
-				else{					
+				pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+				e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+				e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+				e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+				e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+				e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+				e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+				e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+				if (e.layout === "fullscreen" || e.l === "fullscreen")
+					newh = Math.max(e.mh, window.RSIH);
+				else {
 					e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-					for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
-					e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+					for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+					e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
 					e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-					for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
-										
+					for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
 					var nl = new Array(e.rl.length),
-						ix = 0,						
-						sl;					
-					e.tabw = e.tabhide>=pw ? 0 : e.tabw;
-					e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
-					e.tabh = e.tabhide>=pw ? 0 : e.tabh;
-					e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
-					for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
-					sl = nl[0];									
-					for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
-					var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
-					newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+						ix = 0,
+						sl;
+					e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+					e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+					e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+					e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+					for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+					sl = nl[0];
+					for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+					var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+					newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
 				}
 				var el = document.getElementById(e.c);
-				if (el!==null && el) el.style.height = newh+"px";					
-				el = document.getElementById(e.c+"_wrapper");
-				if (el!==null && el) {
-					el.style.height = newh+"px";
+				if (el !== null && el) el.style.height = newh + "px";
+				el = document.getElementById(e.c + "_wrapper");
+				if (el !== null && el) {
+					el.style.height = newh + "px";
 					el.style.display = "block";
 				}
-			} catch(e){
+			} catch (e) {
 				console.log("Failure at Presize of Slider:" + e)
-			}					   
-		//});
-	  };</script>
+			}
+			//});
+		};</script>
 
 
 	<!--SLIDER REVOLUTION 6 DEPENDANCIES END-->
@@ -424,57 +424,44 @@
 
 	<!-- INTERNATIONAL CALLING -->
 
-<link rel="stylesheet" href="build/css/intlTelInput.css">
+	<link rel="stylesheet" href="build/css/intlTelInput.css">
 
-  <script>
-		
-
-	 /* $(function() {
-            $('.reseller').hide();
-            input.addEventListener("countrychange", function() {
-                $('.reseller').hide();
-                var countryCode = iti.getSelectedCountryData().name;
-                $('.reseller.' + countryCode).show();
-            });
-        });	*/
-
-		
-
-    	$(function() {
-            $('.reseller').hide();
+	<script>
+		// Working Function
+		$(function () {
+			$('.reseller').hide();
 			
-			input.addEventListener("countrychange", function() {
+
+			input.addEventListener("countrychange", function () {
 				$('.reseller').hide();
-			
+
 				var input = document.querySelector('#phone');
 				var iti = window.intlTelInputGlobals.getInstance(input);
 				var countryName = iti.getSelectedCountryData().name;
-			
-				
+
+
 				$('.' + countryName).show();
 
 			});
 
-
-
-            /*$('#phone').on('change', function() {
-               
-                /*var countryCode = $('#phone').intlTelInput('getSelectedCountryData');
-				var countryName = $('#phone').intlTelInput('getSelectedCountryData').dailCode;
-                $('.reseller ').show();*/
-            });
-				
+		});
 
 
 
-    </script>
-  
+		
+
+		// New Function To Deal With Safari/Opera/IE Compatibility
+		
+		
+
+	</script>
 
 
-<script src="build/js/intlTelInput.js"></script>
-<script  src="build/js/utils.js"></script>
-<script  src="build/js/intlTelInput-jquery.js"></script>
-<script  src="build/js/data.js"></script>
+
+	<script src="build/js/intlTelInput.js"></script>
+	<script src="build/js/utils.js"></script>
+	<script src="build/js/intlTelInput-jquery.js"></script>
+	<script src="build/js/data.js"></script>
 
 </head>
 
@@ -496,7 +483,8 @@
 						============================================= -->
 						<div id="logo">
 							<a href="index.html" class="standard-logo"
-								data-dark-logo="images/1x/redington_logo.png"><img src="images/1x/redington_logo.png" alt="Redington Logo"></a>
+								data-dark-logo="images/1x/redington_logo.png"><img src="images/1x/redington_logo.png"
+									alt="Redington Logo"></a>
 							<a href="index.html" class="retina-logo" data-dark-logo="images/1x/redington_logo.png"><img
 									src="images/1x/redington_logo.png" alt="Redington Logo"></a>
 						</div><!-- #logo end -->
@@ -541,188 +529,187 @@
 			<div class="header-wrap-clone"></div>
 		</header><!-- #header end -->
 
-		
-<!-- HEADER SLIDER-->
-				<!-- START Apple Activation Slider Main REVOLUTION SLIDER 6.5.9 --><p class="rs-p-wp-fix"></p>
-				<rs-module-wrap id="rev_slider_12_1_wrapper" data-alias="redington-apple-activation-13" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
-					<rs-module id="rev_slider_12_1" style="" data-version="6.5.9">
-						<rs-slides>
-							<rs-slide style="position: absolute;" data-key="rs-28" data-title="Slide" data-duration="6000ms" data-in="o:0;" data-out="a:false;">
-								<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
-	<!--
-								--><rs-layer
-									id="slider-12-slide-28-layer-0" 
-									class="rev-btn"
-									data-type="button"
-									data-color="#353535"
-									data-rsp_ch="on"
-									data-xy="x:c;xo:406px,403px,290px,179px;y:t,t,t,m;yo:210px,253px,170px,23px;"
-									data-text="w:normal;s:14,14,9,8;l:40,40,24,8;fw:300,300,300,500;a:left,left,left,center;"
-									data-dim="w:auto,auto,auto,100px;h:auto,auto,auto,26px;minh:0px,none,none,none;"
-									data-actions='id:content;o:click;a:scrollto;sp:1000ms;e:power1.inOut;'
-									data-padding="t:0,0,0,10;r:25,25,15,10;b:0,0,0,10;l:25,25,15,10;"
-									data-border="bos:solid;boc:rgba(12, 12, 12, 0.35);bow:1px,1px,1px,1px;bor:40px,40px,40px,40px;"
-									data-frame_0="sX:0.9;sY:0.9;"
-									data-frame_1="st:700;sp:2000;"
-									data-frame_999="o:0;st:w;"
-									data-frame_hover="c:#0c0c0c;bgc:rgba(0,0,0,0);boc:rgba(255,255,255,0.75);bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
-									style="z-index:9;background-color:rgba(0,0,0,0);font-family:'Poppins';"
-								>FIND OUT MORE 
-								</rs-layer><!--
-	
-								--><rs-layer
-									id="slider-12-slide-28-layer-3" 
-									class="rs-pxl-13"
-									data-type="image"
-									data-rsp_ch="on"
-									data-xy="x:l,c,l,c;xo:11px,-412px,13px,-3px;y:m,t,m,m;yo:-17px,246px,-45px,0;"
-									data-text="s:20,20,14,8;l:0,0,18,11;"
-									data-dim="w:1053.989px,1053px,750.997px,462.994px;h:159px,159px,113px,70px;"
-									data-frame_0="x:-50,-50,-36,-22;"
-									data-frame_1="st:700;sp:2000;"
-									data-frame_999="x:-100px,-100px,-72px,-44px;o:0;st:w;sp:500;sR:6300;"
-									style="z-index:8;"
-								><img src="assets/MacBook-Pro-Slider-Image.png" class="tp-rs-img" width="1666" height="251" data-no-retina> 
-								</rs-layer><!--
-	-->						</rs-slide>
-							<rs-slide style="position: absolute;" data-key="rs-29" data-title="Slide" data-duration="9000" data-in="o:0;" data-out="a:false;">
-								<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
-	<!--
-								--><rs-layer
-									id="slider-12-slide-29-layer-0" 
-									class="rev-btn"
-									data-type="button"
-									data-color="#353535"
-									data-rsp_ch="on"
-									data-xy="x:c;xo:392px,386px,277px,171px;y:t,m,m,m;yo:207px,19px,26px,6px;"
-									data-text="w:normal;s:14,14,10,8;l:40,40,28,8;fw:300,300,300,500;a:left,left,left,center;"
-									data-dim="w:auto,auto,auto,100px;h:auto,auto,auto,26px;minh:0px,none,none,none;"
-									data-actions='id:content;o:click;a:scrollto;sp:1000ms;e:power1.inOut;'
-									data-padding="t:0,0,0,10;r:25,25,18,10;b:0,0,0,10;l:25,25,18,10;"
-									data-border="bos:solid;boc:rgba(12, 12, 12, 0.35);bow:1px,1px,1px,1px;bor:40px,40px,40px,40px;"
-									data-frame_0="x:-50,-50,-36,-22;"
-									data-frame_1="st:700;sp:2000;"
-									data-frame_999="o:0;st:w;"
-									data-frame_hover="c:#fff;bgc:rgba(0,0,0,0);boc:rgba(255,255,255,0.75);bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
-									style="z-index:10;background-color:rgba(0,0,0,0);font-family:'Poppins';"
-								>FIND OUT MORE 
-								</rs-layer><!--
-	
-								--><rs-layer
-									id="slider-12-slide-29-layer-3" 
-									class="rs-pxl-13"
-									data-type="image"
-									data-rsp_ch="on"
-									data-xy="x:c;xo:0,0,4px,0;y:m,m,t,m;yo:0,0,124px,-9px;"
-									data-text="s:20,20,14,8;l:0,0,18,11;"
-									data-dim="w:1070px,1070px,766px,474.997px;h:250px,250px,179px,111px;"
-									data-frame_0="x:-50,-50,-36,-22;"
-									data-frame_1="st:700;sp:2000;"
-									data-frame_999="x:-100px,-100px,-72px,-44px;o:0;st:w;sp:500;sR:6300;"
-									style="z-index:9;"
-								><img src="assets/iPad-Slider-Image.png" class="tp-rs-img" width="1669" height="390" data-no-retina> 
-								</rs-layer><!--
-	-->						</rs-slide>
-							<rs-slide style="position: absolute;" data-key="rs-30" data-title="Slide" data-duration="9000" data-in="o:0;" data-out="a:false;">
-								<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;" data-parallax="off" data-no-retina>
-	<!--
-								--><rs-layer
-									id="slider-12-slide-30-layer-0" 
-									class="rev-btn"
-									data-type="button"
-									data-color="#353535"
-									data-rsp_ch="on"
-									data-xy="x:c;xo:419px,433px,324px,187px;y:t,t,m,m;yo:163px,176px,-11px,-5px;"
-									data-text="w:normal;s:14,14,10,8;l:40,40,28,8;fw:300,300,300,500;a:left,left,left,center;"
-									data-dim="w:auto,auto,auto,100px;h:auto,auto,auto,26px;minh:0px,none,none,none;"
-									data-actions='id:content;o:click;a:scrollto;sp:1000ms;e:power1.inOut;'
-									data-padding="t:0,0,0,10;r:25,25,18,10;b:0,0,0,10;l:25,25,18,10;"
-									data-border="bos:solid;boc:rgba(12, 12, 12, 0.35);bow:1px,1px,1px,1px;bor:40px,40px,40px,40px;"
-									data-frame_0="x:left;"
-									data-frame_1="st:700;sp:2000;"
-									data-frame_999="o:0;st:w;"
-									data-frame_hover="c:#fff;bgc:rgba(0,0,0,0);boc:rgba(255,255,255,0.75);bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
-									style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Poppins';"
-								>FIND OUT MORE 
-								</rs-layer><!--
-	
-								--><rs-layer
-									id="slider-12-slide-30-layer-17" 
-									class="rs-pxl-15"
-									data-type="image"
-									data-rsp_ch="on"
-									data-xy="x:c;xo:-95px,-98px,-59px,-51px;y:m,t,m,m;yo:16px,117px,7px,7px;"
-									data-text="s:20,20,14,8;l:0,0,18,11;"
-									data-dim="w:870.997px,858.997px,642.991px,344px;h:182px,180px,135px,72px;"
-									data-frame_0="x:left;"
-									data-frame_1="st:700;sp:2000;"
-									data-frame_999="x:-100px,-100px,-72px,-44px;o:0;st:w;sp:500;sR:6000;"
-									style="z-index:9;"
-								><img src="assets/iPad-Mini-Slider.png" class="tp-rs-img" width="1299" height="272" data-no-retina> 
-								</rs-layer><!--
-	-->						</rs-slide>
-						</rs-slides>
-						<rs-static-layers><!--
-						--></rs-static-layers>
-					</rs-module>
-					<script type="text/javascript">
-						
-					</script>
-	<script type="text/javascript">
-			if(typeof revslider_showDoubleJqueryError === "undefined") {function revslider_showDoubleJqueryError(sliderID) {console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");console.log("To fix this, you can:");console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");console.log("2. Find the double jQuery.js inclusion and remove it");return "Double Included jQuery Library";}}
-	</script>
-				</rs-module-wrap>
-				<!-- END REVOLUTION SLIDER -->
-<!--END OF HEADER SLIDER-->	
 
-<!-- PRODUCT TILES-->
+		<!-- HEADER SLIDER-->
+		<!-- START Apple Activation Slider Main REVOLUTION SLIDER 6.5.9 -->
+		<p class="rs-p-wp-fix"></p>
+		<rs-module-wrap id="rev_slider_12_1_wrapper" data-alias="redington-apple-activation-13" data-source="gallery"
+			style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+			<rs-module id="rev_slider_12_1" style="" data-version="6.5.9">
+				<rs-slides>
+					<rs-slide style="position: absolute;" data-key="rs-28" data-title="Slide" data-duration="6000ms"
+						data-in="o:0;" data-out="a:false;">
+						<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;"
+							data-parallax="off" data-no-retina>
+						<!--
+								-->
+						<rs-layer id="slider-12-slide-28-layer-0" class="rev-btn" data-type="button"
+							data-color="#353535" data-rsp_ch="on"
+							data-xy="x:c;xo:406px,403px,290px,179px;y:t,t,t,m;yo:210px,253px,170px,23px;"
+							data-text="w:normal;s:14,14,9,8;l:40,40,24,8;fw:300,300,300,500;a:left,left,left,center;"
+							data-dim="w:auto,auto,auto,100px;h:auto,auto,auto,26px;minh:0px,none,none,none;"
+							data-actions='id:content;o:click;a:scrollto;sp:1000ms;e:power1.inOut;'
+							data-padding="t:0,0,0,10;r:25,25,15,10;b:0,0,0,10;l:25,25,15,10;"
+							data-border="bos:solid;boc:rgba(12, 12, 12, 0.35);bow:1px,1px,1px,1px;bor:40px,40px,40px,40px;"
+							data-frame_0="sX:0.9;sY:0.9;" data-frame_1="st:700;sp:2000;" data-frame_999="o:0;st:w;"
+							data-frame_hover="c:#0c0c0c;bgc:rgba(0,0,0,0);boc:rgba(255,255,255,0.75);bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
+							style="z-index:9;background-color:rgba(0,0,0,0);font-family:'Poppins';">FIND OUT MORE
+						</rs-layer>
+						<!--
+	
+								-->
+						<rs-layer id="slider-12-slide-28-layer-3" class="rs-pxl-13" data-type="image" data-rsp_ch="on"
+							data-xy="x:l,c,l,c;xo:11px,-412px,13px,-3px;y:m,t,m,m;yo:-17px,246px,-45px,0;"
+							data-text="s:20,20,14,8;l:0,0,18,11;"
+							data-dim="w:1053.989px,1053px,750.997px,462.994px;h:159px,159px,113px,70px;"
+							data-frame_0="x:-50,-50,-36,-22;" data-frame_1="st:700;sp:2000;"
+							data-frame_999="x:-100px,-100px,-72px,-44px;o:0;st:w;sp:500;sR:6300;" style="z-index:8;">
+							<img src="assets/MacBook-Pro-Slider-Image.png" class="tp-rs-img" width="1666" height="251"
+								data-no-retina>
+						</rs-layer>
+						<!--
+	-->
+					</rs-slide>
+					<rs-slide style="position: absolute;" data-key="rs-29" data-title="Slide" data-duration="9000"
+						data-in="o:0;" data-out="a:false;">
+						<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;"
+							data-parallax="off" data-no-retina>
+						<!--
+								-->
+						<rs-layer id="slider-12-slide-29-layer-0" class="rev-btn" data-type="button"
+							data-color="#353535" data-rsp_ch="on"
+							data-xy="x:c;xo:392px,386px,277px,171px;y:t,m,m,m;yo:207px,19px,26px,6px;"
+							data-text="w:normal;s:14,14,10,8;l:40,40,28,8;fw:300,300,300,500;a:left,left,left,center;"
+							data-dim="w:auto,auto,auto,100px;h:auto,auto,auto,26px;minh:0px,none,none,none;"
+							data-actions='id:content;o:click;a:scrollto;sp:1000ms;e:power1.inOut;'
+							data-padding="t:0,0,0,10;r:25,25,18,10;b:0,0,0,10;l:25,25,18,10;"
+							data-border="bos:solid;boc:rgba(12, 12, 12, 0.35);bow:1px,1px,1px,1px;bor:40px,40px,40px,40px;"
+							data-frame_0="x:-50,-50,-36,-22;" data-frame_1="st:700;sp:2000;" data-frame_999="o:0;st:w;"
+							data-frame_hover="c:#fff;bgc:rgba(0,0,0,0);boc:rgba(255,255,255,0.75);bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
+							style="z-index:10;background-color:rgba(0,0,0,0);font-family:'Poppins';">FIND OUT MORE
+						</rs-layer>
+						<!--
+	
+								-->
+						<rs-layer id="slider-12-slide-29-layer-3" class="rs-pxl-13" data-type="image" data-rsp_ch="on"
+							data-xy="x:c;xo:0,0,4px,0;y:m,m,t,m;yo:0,0,124px,-9px;"
+							data-text="s:20,20,14,8;l:0,0,18,11;"
+							data-dim="w:1070px,1070px,766px,474.997px;h:250px,250px,179px,111px;"
+							data-frame_0="x:-50,-50,-36,-22;" data-frame_1="st:700;sp:2000;"
+							data-frame_999="x:-100px,-100px,-72px,-44px;o:0;st:w;sp:500;sR:6300;" style="z-index:9;">
+							<img src="assets/iPad-Slider-Image.png" class="tp-rs-img" width="1669" height="390"
+								data-no-retina>
+						</rs-layer>
+						<!--
+	-->
+					</rs-slide>
+					<rs-slide style="position: absolute;" data-key="rs-30" data-title="Slide" data-duration="9000"
+						data-in="o:0;" data-out="a:false;">
+						<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#e3e3e3;"
+							data-parallax="off" data-no-retina>
+						<!--
+								-->
+						<rs-layer id="slider-12-slide-30-layer-0" class="rev-btn" data-type="button"
+							data-color="#353535" data-rsp_ch="on"
+							data-xy="x:c;xo:419px,433px,324px,187px;y:t,t,m,m;yo:163px,176px,-11px,-5px;"
+							data-text="w:normal;s:14,14,10,8;l:40,40,28,8;fw:300,300,300,500;a:left,left,left,center;"
+							data-dim="w:auto,auto,auto,100px;h:auto,auto,auto,26px;minh:0px,none,none,none;"
+							data-actions='id:content;o:click;a:scrollto;sp:1000ms;e:power1.inOut;'
+							data-padding="t:0,0,0,10;r:25,25,18,10;b:0,0,0,10;l:25,25,18,10;"
+							data-border="bos:solid;boc:rgba(12, 12, 12, 0.35);bow:1px,1px,1px,1px;bor:40px,40px,40px,40px;"
+							data-frame_0="x:left;" data-frame_1="st:700;sp:2000;" data-frame_999="o:0;st:w;"
+							data-frame_hover="c:#fff;bgc:rgba(0,0,0,0);boc:rgba(255,255,255,0.75);bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
+							style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Poppins';">FIND OUT MORE
+						</rs-layer>
+						<!--
+	
+								-->
+						<rs-layer id="slider-12-slide-30-layer-17" class="rs-pxl-15" data-type="image" data-rsp_ch="on"
+							data-xy="x:c;xo:-95px,-98px,-59px,-51px;y:m,t,m,m;yo:16px,117px,7px,7px;"
+							data-text="s:20,20,14,8;l:0,0,18,11;"
+							data-dim="w:870.997px,858.997px,642.991px,344px;h:182px,180px,135px,72px;"
+							data-frame_0="x:left;" data-frame_1="st:700;sp:2000;"
+							data-frame_999="x:-100px,-100px,-72px,-44px;o:0;st:w;sp:500;sR:6000;" style="z-index:9;">
+							<img src="assets/iPad-Mini-Slider.png" class="tp-rs-img" width="1299" height="272"
+								data-no-retina>
+						</rs-layer>
+						<!--
+	-->
+					</rs-slide>
+				</rs-slides>
+				<rs-static-layers>
+					<!--
+						-->
+				</rs-static-layers>
+			</rs-module>
+			<script type="text/javascript">
+
+			</script>
+			<script type="text/javascript">
+				if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+			</script>
+		</rs-module-wrap>
+		<!-- END REVOLUTION SLIDER -->
+		<!--END OF HEADER SLIDER-->
+
+		<!-- PRODUCT TILES-->
 
 		<!-- Content
 		============================================= -->
 
-	
-		
+
+
 
 
 		<!--SECONDARY PRODUCT TILES -->
 
-			<!-- Content
+		<!-- Content
 		============================================= -->
 		<section id="content">
 			<div class="content-wrap d-flex min-vh-100 align-items-center">
 				<div class="container clearfix">
 					<div class="row col-mb-50 justify-content-center">
 
-						
+
 
 						<div class="clear"></div>
 
 						<div class="col-xl-4 col-md-6" style="height: 100vh;">
-							<div class="card border-0 dark shadow-sm h-shadow shadow-ts p-3" style="background-color: #f5f6f8;">
+							<div class="card border-0 dark shadow-sm h-shadow shadow-ts p-3"
+								style="background-color: #f5f6f8;">
 								<div class="card-body">
 									<img src="images/1x/1x/Asset 16.png">
-									<br/>
-									<p class="card-text mb-5 text-black text-center">Function defines form. Every aspect of Mac Pro is designed in pursuit of performance. Built around a stainless steel space frame, an aluminum housing lifts off, allowing 360‑degree access to every component and vast configuration. From there anything is possible.</p>
-									</div>
+									<br />
+									<p class="card-text mb-5 text-black text-center">Function defines form. Every aspect
+										of Mac Pro is designed in pursuit of performance. Built around a stainless steel
+										space frame, an aluminum housing lifts off, allowing 360‑degree access to every
+										component and vast configuration. From there anything is possible.</p>
+								</div>
 							</div>
 						</div>
 
 						<div class="col-xl-4 col-md-6" style="height: 100vh; ">
-							<div class="card border-0 shadow-sm h-shadow shadow-ts p-3" style="background-color: #f3f3f3;">
+							<div class="card border-0 shadow-sm h-shadow shadow-ts p-3"
+								style="background-color: #f3f3f3;">
 								<div class="card-body">
 									<img src="assets/1x/iPad Graphic.png">
-									</div>
+								</div>
 							</div>
 						</div>
 
 						<div class="col-xl-4 col-md-6" style="height: 100vh;">
-							<div class="card border-0 dark shadow-sm h-shadow shadow-ts p-3"  style="background-color: #f5f6f8;">
+							<div class="card border-0 dark shadow-sm h-shadow shadow-ts p-3"
+								style="background-color: #f5f6f8;">
 								<div class="card-body">
 									<img src="assets/1x/iPad Mini Graphic.png">
-									<br/>
-									<br/>
+									<br />
+									<br />
 									<p class="card-text mb-5 text-black text-center">Mini just got mightier.
-										iPad mini is beloved for its size and capability. And now there are even more reasons to love it. The A12 Bionic chip with Neural Engine. A 7.9‑inch Retina display with True Tone. And Apple Pencil, so you can capture your biggest ideas wherever they come to you. It’s still iPad mini. There’s just more of it than ever.</p>
+										iPad mini is beloved for its size and capability. And now there are even more
+										reasons to love it. The A12 Bionic chip with Neural Engine. A 7.9‑inch Retina
+										display with True Tone. And Apple Pencil, so you can capture your biggest ideas
+										wherever they come to you. It’s still iPad mini. There’s just more of it than
+										ever.</p>
 								</div>
 							</div>
 						</div>
@@ -731,166 +718,205 @@
 				</div>
 			</div>
 		</section><!-- #content end -->
-	<!-- END OF PRODUCT TILES -->
-<!-- EXTENDED WARRANTY SLIDER -->
-<section id="section-offer">
+		<!-- END OF PRODUCT TILES -->
+		<!-- EXTENDED WARRANTY SLIDER -->
+		<section id="section-offer">
 
-		<!-- START Extended Warranty REVOLUTION SLIDER 6.5.9 --><p class="rs-p-wp-fix"></p>
-		<rs-module-wrap id="rev_slider_9_1_wrapper" data-alias="redington-apple-activation-1" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
-			<rs-module id="rev_slider_9_1" style="" data-version="6.5.9">
-				<rs-slides>
-					<rs-slide style="position: absolute;" data-key="rs-15" data-title="Slide" data-duration="9000" data-in="o:0;" data-out="a:false;">
-						<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#ffffff;" data-parallax="off" data-no-retina>
-<!--
-						--><rs-layer
-							id="slider-9-slide-15-layer-17" 
-							class="rs-pxl-15"
-							data-type="image"
-							data-rsp_ch="on"
-							data-xy="x:c;y:m;"
-							data-text="s:20,20,13,8;l:0,0,17,10;"
-							data-dim="w:953.983px,953.983px,595px,481.994px;h:537px,537px,335px,271px;"
-							data-frame_0="x:-50,-50,-35,-21;"
-							data-frame_1="st:1000;sp:1000;"
-							data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6000;"
-							style="z-index:12;"
-						><img src="assets/Mac-Family-Web-Banner-1.png" class="tp-rs-img" width="1920" height="1080" data-no-retina> 
-						</rs-layer><!--
--->						</rs-slide>
-				</rs-slides>
-				<rs-static-layers><!--
-				--></rs-static-layers>
-			</rs-module>
-			<script type="text/javascript">
-				
-			</script>
-<script type="text/javascript">
-	if(typeof revslider_showDoubleJqueryError === "undefined") {function revslider_showDoubleJqueryError(sliderID) {console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");console.log("To fix this, you can:");console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");console.log("2. Find the double jQuery.js inclusion and remove it");return "Double Included jQuery Library";}}
-</script>
-		</rs-module-wrap>
-		<!-- END REVOLUTION SLIDER -->
-	</section>
-	<section>
-			
-        <div class="content-wrap min-vh-100 d-flex align-items-center" id="section-enquiry" style="background-color:#f7fbfc;">
+			<!-- START Extended Warranty REVOLUTION SLIDER 6.5.9 -->
+			<p class="rs-p-wp-fix"></p>
+			<rs-module-wrap id="rev_slider_9_1_wrapper" data-alias="redington-apple-activation-1" data-source="gallery"
+				style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+				<rs-module id="rev_slider_9_1" style="" data-version="6.5.9">
+					<rs-slides>
+						<rs-slide style="position: absolute;" data-key="rs-15" data-title="Slide" data-duration="9000"
+							data-in="o:0;" data-out="a:false;">
+							<img src="assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img"
+								data-bg="c:#ffffff;" data-parallax="off" data-no-retina>
+							<!--
+						-->
+							<rs-layer id="slider-9-slide-15-layer-17" class="rs-pxl-15" data-type="image"
+								data-rsp_ch="on" data-xy="x:c;y:m;" data-text="s:20,20,13,8;l:0,0,17,10;"
+								data-dim="w:953.983px,953.983px,595px,481.994px;h:537px,537px,335px,271px;"
+								data-frame_0="x:-50,-50,-35,-21;" data-frame_1="st:1000;sp:1000;"
+								data-frame_999="x:-100px,-100px,-71px,-43px;o:0;st:w;sp:500;sR:6000;"
+								style="z-index:12;"><img src="assets/Mac-Family-Web-Banner-1.png" class="tp-rs-img"
+									width="1920" height="1080" data-no-retina>
+							</rs-layer>
+							<!--
+-->
+						</rs-slide>
+					</rs-slides>
+					<rs-static-layers>
+						<!--
+				-->
+					</rs-static-layers>
+				</rs-module>
+				<script type="text/javascript">
+
+				</script>
+				<script type="text/javascript">
+					if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+				</script>
+			</rs-module-wrap>
+			<!-- END REVOLUTION SLIDER -->
+		</section>
+		<section>
+
+			<div class="content-wrap min-vh-100 d-flex align-items-center" id="section-enquiry"
+				style="background-color:#f7fbfc;">
 
 
-            <!-- Email Form Start-->
-            <div class="container clearfix">
-                <div style="display: flex; align-items: center; justify-content: center;">
-            
-                    <a href="#section-enquiry"  class="button button-3d button-rounded button-black"><i class=""></i> CLICK HERE FOR GREAT OFFERS</a>
-                </div>
-                <div class="mx-auto topmargin" style="max-width: 850px; padding-top:0px; background-color: #e4e4e4; padding: 3em; border-radius: 3em; " id="section-enquire">
-                    
-                    <div class="form-widget">
+				<!-- Email Form Start-->
+				<div class="container clearfix">
+					<div style="display: flex; align-items: center; justify-content: center;">
 
-                        <div class="form-result"></div>
+						<a href="#section-enquiry" class="button button-3d button-rounded button-black"><i class=""></i>
+							CLICK HERE FOR GREAT OFFERS</a>
+					</div>
+					<div class="mx-auto topmargin"
+						style="max-width: 850px; padding-top:0px; background-color: #e4e4e4; padding: 3em; border-radius: 3em; "
+						id="section-enquire">
 
-                        <form class="row mb-0" id="template-contactform" name="template-contactform"
-                            action="include/form.php" method="post">
+						<div class="form-widget">
 
-                            <div class="form-process">
-                                <div class="css3-spinner">
-                                    <div class="css3-spinner-scale-ripple">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-4">
-                                <h3 style="text-align: center;"> ENTER YOUR DETAILS</h3>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <input type="text" id="template-contactform-name" name="template-contactform-name"
-                                    value="" class="sm-form-control border-form-control required"
-                                    placeholder="Name*" />
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <input type="email" id="template-contactform-email"
-                                    name="template-contactform-email" value=""
-                                    class="required email sm-form-control border-form-control"
-                                    placeholder="Email*" />
-                            </div>
+							<div class="form-result"></div>
 
-                            <div class="w-100"></div>
-                            
-                            
-                            <div class="col-md-4 mb-4">
-                                <input id="phone" name="phone" type="tel"
-                                    value="" class="sm-form-control border-form-control" placeholder="Telephone No."/>
-                            </div>
+							<form class="row mb-0" id="template-contactform" name="template-contactform"
+								action="include/form.php" method="post">
 
-                            <div class="col-md-8 mb-4">
-                                <input type="text" id="template-contactform-subject" name="subject" value=""
-                                    class="required sm-form-control border-form-control" placeholder="Location" />
-                            </div>
+								<div class="form-process">
+									<div class="css3-spinner">
+										<div class="css3-spinner-scale-ripple">
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 mb-4">
+									<h3 style="text-align: center;"> ENTER YOUR DETAILS</h3>
+								</div>
+								<div class="col-md-6 mb-4">
+									<input type="text" id="template-contactform-name" name="template-contactform-name"
+										value="" class="sm-form-control border-form-control required"
+										placeholder="Name*" />
+								</div>
+								<div class="col-md-6 mb-4">
+									<input type="email" id="template-contactform-email"
+										name="template-contactform-email" value=""
+										class="required email sm-form-control border-form-control"
+										placeholder="Email*" />
+								</div>
 
-                            <div class="w-100"></div>
+								<div class="w-100"></div>
 
-                            <div class="col-12 mb-4">
-                                <label for="cars">Select Product:</label>
-                                <select id="product" name="product" id="template-contactform-product"
-                                    class="sm-form-control">
-                                    <option value="" disabled selected>Select Your Option</option>
-                                    <option value="MacBook">MacBook</option>
-                                    <option value="iPad">iPad</option>
-                                    <option value="iPad Mini">iPad Mini</option>
 
-                                </select>
-                            </div>
+								<div class="col-md-4 mb-4">
+									<input id="phone" name="phone" type="tel" value=""
+										class="sm-form-control border-form-control" placeholder="Telephone No." />
+								</div>
 
-                            <div class="col-12 mb-4">
-                                <label for="resellers">Select Authorized Reseller:</label>
-                                <select id="reseller" name="reseller" id="template-contactform-reseller"
-                                    class="sm-form-control">
-                                    <option value="" disabled selected>Select Your Option</option>
-									<option class= "reseller Kenya 254" value="Elite DIgital Solutions">Elite Digital Solutions</option>
-                                    <option class= "reseller Uganda 256" value="Elite DIgital Solutions">Elite Digital Solutions</option>
-                                    <option class= "reseller Tanzania 255 " value="Elite DIgital Solutions">Elite Digital Solutions</option>
-                                    <option class=" reseller Kenya 254" value="reseller 254" >Salute iWorld</option>
-                                    <option class= "reseller Kenya 254" value="Globoedge">Globoedge</option>
-                                    <option class= "reseller Kenya 254" value="Mac & More">Mac & More</option>
-                                    <option class= "reseller Kenya 254" value="Gametroniq">Gametroniq</option>
-                                    <option class= "reseller Tanzania 255" value="iStore">iStore</option>
-                                    <option class= "reseller Ghana" value="iStore">iStore</option>
-                                    <option class= "reseller Nigeria 234" value="iConnect">iConnect</option>
-                                    <option class= "reseller Nigeria 234" value="iDevices Store">iDevices Store</option>
-                                    <option class= "reseller Nigeria 234" value="iDevices Store">Casper</option>
-                                    <option  class= "reseller Nigeria 234"value="Slot Systems Limited">Slot Systems Limited</option>
-                                    <option class= "reseller Nigeria 234" value="Dreamworks Direct">Dreamworks Direct</option>
+								<div class="col-md-8 mb-4">
+									<input type="text" id="template-contactform-subject" name="subject" value=""
+										class="required sm-form-control border-form-control" placeholder="Location" />
+								</div>
 
-                                </select>
-                            </div>
+								<div class="w-100"></div>
 
-                            <div class="col-12 center mb-4">
-                                <button class="button button-border button-circle fw-medium ms-0 topmargin-sm"
-                                    type="submit" id="template-contactform-submit"
-                                    name="template-contactform-submit" value="submit">Send Message</button>
-                                <br>
-                                <small style="display: block; font-size: 13px; margin-top: 15px;"></small>
-                            </div>
+								<div class="col-12 mb-4">
+									<label for="cars">Select Product:</label>
+									<select id="product" name="product" id="template-contactform-product"
+										class="sm-form-control">
+										<option value="" disabled selected>Select Your Option</option>
+										<option value="MacBook">MacBook</option>
+										<option value="iPad">iPad</option>
+										<option value="iPad Mini">iPad Mini</option>
 
-                            <div class="w-100"></div>
+									</select>
+								</div>
 
-                            <div class="col-12 d-none">
-                                <input type="text" id="template-contactform-botcheck"
-                                    name="template-contactform-botcheck" value="" class="sm-form-control" />
-                            </div>
+								<div class="col-12 mb-4">
+									<label for="resellers">Select Authorized Reseller:</label>
 
-                            <input type="hidden" name="prefix" value="template-contactform-">
+									<!--<ul id="reseller" name="reseller" id="template-contactform-reseller"
+									class="sm-form-control">
+									<li value="" disabled selected>Select Your Option</li>
+									<li class="reseller Kenya 254" value="Elite DIgital Solutions">Elite Digital
+										Solutions</li>
+									<li class="reseller Uganda 256" value="Elite DIgital Solutions">Elite
+										Digital Solutions</li>
+									<li class="reseller Tanzania 255 " value="Elite DIgital Solutions">Elite
+										Digital Solutions</li>
+									<li class=" reseller Kenya 254" value="reseller 254">Salute iWorld</li>
+									<li class="reseller Kenya 254" value="Globoedge">Globoedge</li>
+									<li class="reseller Kenya 254" value="Mac & More">Mac & More</li>
+									<li class="reseller Kenya 254" value="Gametroniq">Gametroniq</li>
+									<li class="reseller Tanzania 255" value="iStore">iStore</li>
+									<li class="reseller Ghana" value="iStore">iStore</li>
+									<li class="reseller Nigeria 234" value="iConnect">iConnect</li>
+									<li class="reseller Nigeria 234" value="iDevices Store">iDevices Store
+									</li>
+									<li class="reseller Nigeria 234" value="iDevices Store">Casper</li>
+									<li class="reseller Nigeria 234" value="Slot Systems Limited">Slot Systems
+										Limited</li>
+									<li class="reseller Nigeria 234" value="Dreamworks Direct">Dreamworks Direct
+									</li>
 
-                        </form>
+								</ul>-->
+									<select id="reseller" name="reseller" id="template-contactform-reseller"
+										class="sm-form-control">
+										<option value="" disabled selected>Select Your Option</option>
+										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Elite DIgital Solutions">Elite Digital
+											Solutions</option>
+										<option class="reseller Uganda" data-sel= "reseller Uganda" value="Elite DIgital Solutions">Elite
+											Digital Solutions</option>
+										<option class="reseller Tanzania" data-sel= "reseller Tanzania"  value="Elite DIgital Solutions">Elite
+											Digital Solutions</option>
+										<option class=" reseller Kenya" data-sel= "reseller Kenya" value="reseller 254">Salute iWorld</option>
+										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Globoedge">Globoedge</option>
+										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Mac & More">Mac & More</option>
+										<option class="reseller Kenya" data-sel= "reseller Kenya" value="Gametroniq">Gametroniq</option>
+										<option class="reseller Tanzania" data-sel= "reseller Tanzania" value="iStore">iStore</option>
+										<option class="reseller Ghana" data-sel= "reseller Ghana" value="iStore">iStore</option>
+										<option class="reseller Nigeria"  data-sel= "reseller Nigeria"value="iConnect">iConnect</option>
+										<option class="reseller Nigeria" data-sel= "reseller Nigeria"value="iDevices Store">iDevices Store
+										</option>
+										<option class="reseller Nigeria" data-sel= "reseller Nigeria" value="iDevices Store">Casper</option>
+										<option class="reseller Nigeria" data-sel= "reseller Nigeria" value="Slot Systems Limited">Slot Systems
+											Limited</option>
+										<option class="reseller Nigeria" data-sel= "reseller Nigeria" value="Dreamworks Direct">Dreamworks Direct
+										</option>
 
-                    </div>
+									</select>
+								</div>
 
-                </div>
+								<div class="col-12 center mb-4">
+									<button class="button button-border button-circle fw-medium ms-0 topmargin-sm"
+										type="submit" id="template-contactform-submit"
+										name="template-contactform-submit" value="submit">Send Message</button>
+									<br>
+									<small style="display: block; font-size: 13px; margin-top: 15px;"></small>
+								</div>
 
-            </div>
-            <!-- Email Form End-->
-        </div>
-    </section>
+								<div class="w-100"></div>
+
+								<div class="col-12 d-none">
+									<input type="text" id="template-contactform-botcheck"
+										name="template-contactform-botcheck" value="" class="sm-form-control" />
+								</div>
+
+								<input type="hidden" name="prefix" value="template-contactform-">
+
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+				<!-- Email Form End-->
+			</div>
+		</section>
 
 
 
@@ -926,192 +952,309 @@
 	============================================= -->
 	<script src="js/functions.js"></script>
 
-<!-- HEADER SLIDER JS AND CSS-->
-<script type="text/javascript">
-	var	tpj = jQuery;
-	if(window.RS_MODULES === undefined) window.RS_MODULES = {};
-	if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
-	RS_MODULES.modules["revslider121"] = {once: RS_MODULES.modules["revslider121"]!==undefined ? RS_MODULES.modules["revslider121"].once : undefined, init:function() {
-		window.revapi12 = window.revapi12===undefined || window.revapi12===null || window.revapi12.length===0  ? document.getElementById("rev_slider_12_1") : window.revapi12;
-		if(window.revapi12 === null || window.revapi12 === undefined || window.revapi12.length==0) { window.revapi12initTry = window.revapi12initTry ===undefined ? 0 : window.revapi12initTry+1; if (window.revapi12initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider121"].init()}); return;}
-		window.revapi12 = jQuery(window.revapi12);
-		if(window.revapi12.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_12_1"); return;}
-		revapi12.revolutionInit({
-				revapi:"revapi12",
-				DPR:"dpr",
-				sliderLayout:"fullwidth",
-				visibilityLevels:"1240,1024,778,480",
-				gridwidth:"1080,1080,778,480",
-				gridheight:"400,400,400,400",
-				perspective:600,
-				perspectiveType:"local",
-				keepBPHeight:true,
-				editorheight:"400,400,400,400",
-				responsiveLevels:"1240,1024,778,480",
-				startWithSlide:1,
-				progressBar: {
-					alignby:"grid",
-					size:5,
-					x:0,
-					y:0
+	<!-- HEADER SLIDER JS AND CSS-->
+	<script type="text/javascript">
+		var tpj = jQuery;
+		if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+		if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+		RS_MODULES.modules["revslider121"] = {
+			once: RS_MODULES.modules["revslider121"] !== undefined ? RS_MODULES.modules["revslider121"].once : undefined, init: function () {
+				window.revapi12 = window.revapi12 === undefined || window.revapi12 === null || window.revapi12.length === 0 ? document.getElementById("rev_slider_12_1") : window.revapi12;
+				if (window.revapi12 === null || window.revapi12 === undefined || window.revapi12.length == 0) { window.revapi12initTry = window.revapi12initTry === undefined ? 0 : window.revapi12initTry + 1; if (window.revapi12initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider121"].init() }); return; }
+				window.revapi12 = jQuery(window.revapi12);
+				if (window.revapi12.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_12_1"); return; }
+				revapi12.revolutionInit({
+					revapi: "revapi12",
+					DPR: "dpr",
+					sliderLayout: "fullwidth",
+					visibilityLevels: "1240,1024,778,480",
+					gridwidth: "1080,1080,778,480",
+					gridheight: "400,400,400,400",
+					perspective: 600,
+					perspectiveType: "local",
+					keepBPHeight: true,
+					editorheight: "400,400,400,400",
+					responsiveLevels: "1240,1024,778,480",
+					startWithSlide: 1,
+					progressBar: {
+						alignby: "grid",
+						size: 5,
+						x: 0,
+						y: 0
 					},
-				navigation: {
-					mouseScrollNavigation:false,
-					wheelCallDelay:1000,
-					onHoverStop:false,
-					touch: {
-						touchenabled:true
-					},
-					arrows: {
-						enable:true,
-						tmp:"<div class=\"tp-title-wrap\">  	<div class=\"tp-arr-imgholder\"></div> </div>",
-						style:"zeus",
-						hide_onmobile:true,
-						hide_under:778,
-						hide_onleave:true,
-						left: {
-							h_offset:30
+					navigation: {
+						mouseScrollNavigation: false,
+						wheelCallDelay: 1000,
+						onHoverStop: false,
+						touch: {
+							touchenabled: true
 						},
-						right: {
-							h_offset:30
+						arrows: {
+							enable: true,
+							tmp: "<div class=\"tp-title-wrap\">  	<div class=\"tp-arr-imgholder\"></div> </div>",
+							style: "zeus",
+							hide_onmobile: true,
+							hide_under: 778,
+							hide_onleave: true,
+							left: {
+								h_offset: 30
+							},
+							right: {
+								h_offset: 30
+							}
+						},
+						bullets: {
+							enable: true,
+							tmp: "",
+							style: "bullet-bar",
+							hide_onleave: true,
+							v_offset: 30,
+							space: 10
 						}
 					},
-					bullets: {
-						enable:true,
-						tmp:"",
-						style:"bullet-bar",
-						hide_onleave:true,
-						v_offset:30,
-						space:10
-					}
-				},
-				parallax: {
-					levels:[5,10,15,20,25,30,35,40,45,50,-5,-10,-15,-20,-25,30],
-					type:"scroll",
-					origo:"slideCenter",
-					speed:1000,
-					speedls:1000
-				},
-				fanim: {
-					in:{"o":0},
-					out:{"a":false},
-					speed:300
-				},
-				viewPort: {
-					global:false,
-					globalDist:"-200px",
-					enable:true,
-					visible_area:"80%"
-				},
-				fallbacks: {
-					allowHTML5AutoPlayOnAndroid:true
-				},
-		});
-		
-	}} // End of RevInitScript
-	if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
-</script>
+					parallax: {
+						levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, -5, -10, -15, -20, -25, 30],
+						type: "scroll",
+						origo: "slideCenter",
+						speed: 1000,
+						speedls: 1000
+					},
+					fanim: {
+						in: { "o": 0 },
+						out: { "a": false },
+						speed: 300
+					},
+					viewPort: {
+						global: false,
+						globalDist: "-200px",
+						enable: true,
+						visible_area: "80%"
+					},
+					fallbacks: {
+						allowHTML5AutoPlayOnAndroid: true
+					},
+				});
+
+			}
+		} // End of RevInitScript
+		if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
+	</script>
 
 
 
-<style type="text/css">#rev_slider_12_1_wrapper .zeus.tparrows{cursor:pointer; min-width:70px; min-height:70px; position:absolute; display:block; z-index:1000; border-radius:50%;  overflow:hidden; background:rgba(0,0,0,0.1)}#rev_slider_12_1_wrapper .zeus.tparrows:before{font-family:'revicons'; font-size:20px; color:#ffffff; display:block; line-height:70px; text-align:center;  z-index:2; position:relative}#rev_slider_12_1_wrapper .zeus.tparrows.tp-leftarrow:before{content:'\e824'}#rev_slider_12_1_wrapper .zeus.tparrows.tp-rightarrow:before{content:'\e825'}#rev_slider_12_1_wrapper .zeus .tp-title-wrap{background:rgba(0,0,0,0.5); width:100%; height:100%; top:0px; left:0px; position:absolute; opacity:0; transform:scale(0); -webkit-transform:scale(0); transition:all 0.3s; -webkit-transition:all 0.3s; -moz-transition:all 0.3s; border-radius:50%}#rev_slider_12_1_wrapper .zeus .tp-arr-imgholder{width:100%; height:100%; position:absolute; top:0px; left:0px; background-position:center center; background-size:cover; border-radius:50%; transform:translatex(-100%); -webkit-transform:translatex(-100%); transition:all 0.3s; -webkit-transition:all 0.3s; -moz-transition:all 0.3s}#rev_slider_12_1_wrapper .zeus.tp-rightarrow .tp-arr-imgholder{transform:translatex(100%); -webkit-transform:translatex(100%)}#rev_slider_12_1_wrapper .zeus.tparrows.rs-touchhover .tp-arr-imgholder{transform:translatex(0); -webkit-transform:translatex(0); opacity:1}#rev_slider_12_1_wrapper .zeus.tparrows.rs-touchhover .tp-title-wrap{transform:scale(1); -webkit-transform:scale(1); opacity:1}.bullet-bar .tp-bullet{}.bullet-bar .tp-bullet:before{content:" ";position:absolute;width:100%;height:100%;background:transparent;padding:10px;margin-left:-10px;margin-top:-10px;box-sizing:content-box}.bullet-bar .tp-bullet{width:60px;height:3px;position:absolute;background:#aaa; background:rgba(204,204,204,0.5);cursor:pointer;box-sizing:content-box}.bullet-bar .tp-bullet.rs-touchhover,.bullet-bar .tp-bullet.selected{background:rgba(204,204,204,1)}.bullet-bar .tp-bullet-image{}.bullet-bar .tp-bullet-title{}</style>
+	<style type="text/css">
+		#rev_slider_12_1_wrapper .zeus.tparrows {
+			cursor: pointer;
+			min-width: 70px;
+			min-height: 70px;
+			position: absolute;
+			display: block;
+			z-index: 1000;
+			border-radius: 50%;
+			overflow: hidden;
+			background: rgba(0, 0, 0, 0.1)
+		}
+
+		#rev_slider_12_1_wrapper .zeus.tparrows:before {
+			font-family: 'revicons';
+			font-size: 20px;
+			color: #ffffff;
+			display: block;
+			line-height: 70px;
+			text-align: center;
+			z-index: 2;
+			position: relative
+		}
+
+		#rev_slider_12_1_wrapper .zeus.tparrows.tp-leftarrow:before {
+			content: '\e824'
+		}
+
+		#rev_slider_12_1_wrapper .zeus.tparrows.tp-rightarrow:before {
+			content: '\e825'
+		}
+
+		#rev_slider_12_1_wrapper .zeus .tp-title-wrap {
+			background: rgba(0, 0, 0, 0.5);
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			opacity: 0;
+			transform: scale(0);
+			-webkit-transform: scale(0);
+			transition: all 0.3s;
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s;
+			border-radius: 50%
+		}
+
+		#rev_slider_12_1_wrapper .zeus .tp-arr-imgholder {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-position: center center;
+			background-size: cover;
+			border-radius: 50%;
+			transform: translatex(-100%);
+			-webkit-transform: translatex(-100%);
+			transition: all 0.3s;
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s
+		}
+
+		#rev_slider_12_1_wrapper .zeus.tp-rightarrow .tp-arr-imgholder {
+			transform: translatex(100%);
+			-webkit-transform: translatex(100%)
+		}
+
+		#rev_slider_12_1_wrapper .zeus.tparrows.rs-touchhover .tp-arr-imgholder {
+			transform: translatex(0);
+			-webkit-transform: translatex(0);
+			opacity: 1
+		}
+
+		#rev_slider_12_1_wrapper .zeus.tparrows.rs-touchhover .tp-title-wrap {
+			transform: scale(1);
+			-webkit-transform: scale(1);
+			opacity: 1
+		}
+
+		.bullet-bar .tp-bullet {}
+
+		.bullet-bar .tp-bullet:before {
+			content: " ";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			padding: 10px;
+			margin-left: -10px;
+			margin-top: -10px;
+			box-sizing: content-box
+		}
+
+		.bullet-bar .tp-bullet {
+			width: 60px;
+			height: 3px;
+			position: absolute;
+			background: #aaa;
+			background: rgba(204, 204, 204, 0.5);
+			cursor: pointer;
+			box-sizing: content-box
+		}
+
+		.bullet-bar .tp-bullet.rs-touchhover,
+		.bullet-bar .tp-bullet.selected {
+			background: rgba(204, 204, 204, 1)
+		}
+
+		.bullet-bar .tp-bullet-image {}
+
+		.bullet-bar .tp-bullet-title {}
+	</style>
 
 
 	<!-- EXTENDED WARRANTY SLIDER ADD-ONS JS FILES -->
 	<script type="text/javascript">
-		var	tpj = jQuery;
-		if(window.RS_MODULES === undefined) window.RS_MODULES = {};
-		if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
-		RS_MODULES.modules["revslider91"] = {once: RS_MODULES.modules["revslider91"]!==undefined ? RS_MODULES.modules["revslider91"].once : undefined, init:function() {
-			window.revapi9 = window.revapi9===undefined || window.revapi9===null || window.revapi9.length===0  ? document.getElementById("rev_slider_9_1") : window.revapi9;
-			if(window.revapi9 === null || window.revapi9 === undefined || window.revapi9.length==0) { window.revapi9initTry = window.revapi9initTry ===undefined ? 0 : window.revapi9initTry+1; if (window.revapi9initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider91"].init()}); return;}
-			window.revapi9 = jQuery(window.revapi9);
-			if(window.revapi9.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_9_1"); return;}
-			revapi9.revolutionInit({
-					revapi:"revapi9",
-					DPR:"dpr",
-					sliderLayout:"fullwidth",
-					visibilityLevels:"1240,1240,778,480",
-					gridwidth:"1080,1080,778,480",
-					gridheight:"400,400,400,400",
-					perspective:600,
-					perspectiveType:"local",
-					keepBPHeight:true,
-					editorheight:"400,663,400,400",
-					responsiveLevels:"1240,1240,778,480",
-					startWithSlide:1,
+		var tpj = jQuery;
+		if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+		if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+		RS_MODULES.modules["revslider91"] = {
+			once: RS_MODULES.modules["revslider91"] !== undefined ? RS_MODULES.modules["revslider91"].once : undefined, init: function () {
+				window.revapi9 = window.revapi9 === undefined || window.revapi9 === null || window.revapi9.length === 0 ? document.getElementById("rev_slider_9_1") : window.revapi9;
+				if (window.revapi9 === null || window.revapi9 === undefined || window.revapi9.length == 0) { window.revapi9initTry = window.revapi9initTry === undefined ? 0 : window.revapi9initTry + 1; if (window.revapi9initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider91"].init() }); return; }
+				window.revapi9 = jQuery(window.revapi9);
+				if (window.revapi9.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_9_1"); return; }
+				revapi9.revolutionInit({
+					revapi: "revapi9",
+					DPR: "dpr",
+					sliderLayout: "fullwidth",
+					visibilityLevels: "1240,1240,778,480",
+					gridwidth: "1080,1080,778,480",
+					gridheight: "400,400,400,400",
+					perspective: 600,
+					perspectiveType: "local",
+					keepBPHeight: true,
+					editorheight: "400,663,400,400",
+					responsiveLevels: "1240,1240,778,480",
+					startWithSlide: 1,
 					progressBar: {
-						alignby:"grid",
-						size:5,
-						x:0,
-						y:0
-						},
+						alignby: "grid",
+						size: 5,
+						x: 0,
+						y: 0
+					},
 					navigation: {
-						mouseScrollNavigation:false,
-						wheelCallDelay:1000,
-						onHoverStop:false,
+						mouseScrollNavigation: false,
+						wheelCallDelay: 1000,
+						onHoverStop: false,
 						touch: {
-							touchenabled:true
+							touchenabled: true
 						}
 					},
 					parallax: {
-						levels:[5,10,15,20,25,30,35,40,45,50,-5,-10,-15,-20,-25,30],
-						type:"scroll",
-						origo:"slideCenter",
-						speed:1000,
-						speedls:1000
+						levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, -5, -10, -15, -20, -25, 30],
+						type: "scroll",
+						origo: "slideCenter",
+						speed: 1000,
+						speedls: 1000
 					},
 					fanim: {
-						in:{"o":0},
-						out:{"a":false},
-						speed:300
+						in: { "o": 0 },
+						out: { "a": false },
+						speed: 300
 					},
 					viewPort: {
-						global:false,
-						globalDist:"-200px",
-						enable:true,
-						visible_area:"80%"
+						global: false,
+						globalDist: "-200px",
+						enable: true,
+						visible_area: "80%"
 					},
 					fallbacks: {
-						allowHTML5AutoPlayOnAndroid:true
+						allowHTML5AutoPlayOnAndroid: true
 					},
-			});
-			
-		}} // End of RevInitScript
-		if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
+				});
+
+			}
+		} // End of RevInitScript
+		if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
 	</script>
 
-<!-- CALLING CODE JS-->
+	<!-- CALLING CODE JS-->
 
-<!-- INTERNATIONAL CALLING CODE-->
+	<!-- INTERNATIONAL CALLING CODE-->
 
-<script src="build/js/intlTelInput.js"></script>
-  <script>
-    var input = document.querySelector("#phone");
-    window.intlTelInput(input, {
-      // allowDropdown: false,
-      // autoHideDialCode: false,
-      // autoPlaceholder: "off",
-      // dropdownContainer: document.body,
-      // excludeCountries: ["us"],
-      // formatOnDisplay: false,
-      // geoIpLookup: function(callback) {
-      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-      //     var countryCode = (resp && resp.country) ? resp.country : "";
-      //     callback(countryCode);
-      //   });
-      // },
-      // hiddenInput: "full_number",
-      initialCountry: "auto",
-      // localizedCountries: { 'de': 'Deutschland' },
-      // nationalMode: false,
-      onlyCountries: ['ke', 'ug', 'tz', 'gh', 'ng'],
-      // placeholderNumberType: "MOBILE",
-      // preferredCountries: ['cn', 'jp'],
-      // separateDialCode: true,
-      utilsScript: "build/js/utils.js",
-    });
-  </script>
+	<script src="build/js/intlTelInput.js"></script>
+	<script>
+		var input = document.querySelector("#phone");
+		window.intlTelInput(input, {
+			// allowDropdown: false,
+			// autoHideDialCode: false,
+			// autoPlaceholder: "off",
+			// dropdownContainer: document.body,
+			// excludeCountries: ["us"],
+			// formatOnDisplay: false,
+			// geoIpLookup: function(callback) {
+			//   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+			//     var countryCode = (resp && resp.country) ? resp.country : "";
+			//     callback(countryCode);
+			//   });
+			// },
+			// hiddenInput: "full_number",
+			initialCountry: "auto",
+			// localizedCountries: { 'de': 'Deutschland' },
+			// nationalMode: false,
+			onlyCountries: ['ke', 'ug', 'tz', 'gh', 'ng'],
+			// placeholderNumberType: "MOBILE",
+			// preferredCountries: ['cn', 'jp'],
+			// separateDialCode: true,
+			utilsScript: "build/js/utils.js",
+		});
+	</script>
 
 
 
