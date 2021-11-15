@@ -3523,6 +3523,7 @@ only screen and (                min-resolution: 2dppx) {
 	flex-grow: 1;
 	-ms-flex-align: center;
 	align-items: center;
+	font-family: 'SF Pro Display', sans-serif;
 }
 
 .primary-menu + .primary-menu {
@@ -3642,7 +3643,7 @@ body:not(.top-search-open) .top-search-parent #primary-menu-trigger {
 
 .menu-item:hover > .menu-link,
 .menu-item.current > .menu-link {
-	color: #1ABC9C;
+	color:green;
 }
 
 .menu-item.sub-menu > .menu-link > div { }
@@ -6673,7 +6674,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
 
 .content-wrap {
 	position: relative;
-	padding: 80px 0;
+	padding: 10px 0;
 	overflow: hidden;
 }
 
