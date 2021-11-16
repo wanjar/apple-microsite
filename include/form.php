@@ -56,14 +56,14 @@ $recaptcha_secret = ''; // Your reCaptcha Secret
 
 $mail = new PHPMailer();
 
-$mail->IsSMTP();
-$mail->Host = "email-smtp.us-east-1.amazonaws.com";
+$mail->isSMTP();
 $mail->SMTPDebug = 0;
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
-$mail->SMTPSecure = "tls";
-$mail->Port = 465;
-$mail->Username = "AKIATYHRX3VJMIN67IMD";
-$mail->Password = "BKFuTQmUEl+PsHULL1A2UzHvYjGPwcJvoL5EMFGC7aq2";
+$mail->Username = "zawadimilan@gmail.com";
+$mail->Password = "MrsKimandi@1";
 
 
 // End of SMTP
