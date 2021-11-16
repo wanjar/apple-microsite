@@ -27,7 +27,7 @@ require 'phpmailer/src/SMTP.php';
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'digital@applereddingtongulf.co.ke', // Your Email Address
+				'email' => 'wanja@digitalplatforms.co.ke', // Your Email Address
 				'name' => 'Apple Extended Warranty' // Your Name
 			);
 
