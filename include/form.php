@@ -62,7 +62,7 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
-$mail->Username = "zawadimilan@gmail.com";
+$mail->Username = "zawadi.milan@gmail.com";
 $mail->Password = "MrsKimandi@1";
 
 
