@@ -37,7 +37,7 @@ $toemails[] = array(
 ---------------------------------------------------*/
 
 $fromemail = array(
-				'email' => 'no-reply@website.com', // Company's Email Address (preferably currently used Domain Name)
+				'email' => 'digital@applereddingtongulf.co.ke', // Company's Email Address (preferably currently used Domain Name)
 				'name' => 'Company Name' // Company Name
 			);
 
